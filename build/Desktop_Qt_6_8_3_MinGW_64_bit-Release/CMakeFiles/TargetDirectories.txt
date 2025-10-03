@@ -1,0 +1,9 @@
+E:/SerialQT/Humidity/build/Desktop_Qt_6_8_3_MinGW_64_bit-Release/CMakeFiles/Humidity.dir
+E:/SerialQT/Humidity/build/Desktop_Qt_6_8_3_MinGW_64_bit-Release/CMakeFiles/edit_cache.dir
+E:/SerialQT/Humidity/build/Desktop_Qt_6_8_3_MinGW_64_bit-Release/CMakeFiles/rebuild_cache.dir
+E:/SerialQT/Humidity/build/Desktop_Qt_6_8_3_MinGW_64_bit-Release/CMakeFiles/list_install_components.dir
+E:/SerialQT/Humidity/build/Desktop_Qt_6_8_3_MinGW_64_bit-Release/CMakeFiles/install.dir
+E:/SerialQT/Humidity/build/Desktop_Qt_6_8_3_MinGW_64_bit-Release/CMakeFiles/install/local.dir
+E:/SerialQT/Humidity/build/Desktop_Qt_6_8_3_MinGW_64_bit-Release/CMakeFiles/install/strip.dir
+E:/SerialQT/Humidity/build/Desktop_Qt_6_8_3_MinGW_64_bit-Release/CMakeFiles/Humidity_autogen_timestamp_deps.dir
+E:/SerialQT/Humidity/build/Desktop_Qt_6_8_3_MinGW_64_bit-Release/CMakeFiles/Humidity_autogen.dir

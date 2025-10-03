@@ -1,0 +1,14 @@
+# ninja log v6
+9	1747	7812162840360876	Humidity_autogen/timestamp	f9af8b9ce56e9ede
+9	1747	7812162840360876	Humidity_autogen/mocs_compilation.cpp	f9af8b9ce56e9ede
+9	1747	7812162840360876	E:/SerialQT/Humidity/build/Desktop_Qt_6_8_3_MinGW_64_bit-Release/Humidity_autogen/timestamp	f9af8b9ce56e9ede
+9	1747	7812162840360876	E:/SerialQT/Humidity/build/Desktop_Qt_6_8_3_MinGW_64_bit-Release/Humidity_autogen/mocs_compilation.cpp	f9af8b9ce56e9ede
+1779	5883	7812162841988430	CMakeFiles/Humidity.dir/sqlitework.cpp.obj	a749ac1d62505046
+1775	6405	7812162841948434	CMakeFiles/Humidity.dir/networkwork.cpp.obj	a68893698fa4c695
+1767	6811	7812162841858436	CMakeFiles/Humidity.dir/deb.cpp.obj	b345c2cc25e9b438
+1761	7303	7812162841808440	CMakeFiles/Humidity.dir/main.cpp.obj	f9c9cea49945fc5a
+1772	7397	7812162841918424	CMakeFiles/Humidity.dir/mymodbus.cpp.obj	9de65f4b681774a7
+1769	7936	7812162841888417	CMakeFiles/Humidity.dir/sql.cpp.obj	82e00b57559a1ea8
+1758	10790	7812162841768416	CMakeFiles/Humidity.dir/Humidity_autogen/mocs_compilation.cpp.obj	64f71a4ad0b9ecc8
+1764	11684	7812162841828438	CMakeFiles/Humidity.dir/mainwindow.cpp.obj	db6db87185b067ea
+11685	12018	7812162940943222	Humidity.exe	cebaf14a0efbd823

@@ -1,0 +1,11 @@
+# ninja log v6
+22	502	7811041227101532	Humidity_autogen/timestamp	726ea3f29c67df49
+22	502	7811041227101532	Humidity_autogen/mocs_compilation.cpp	726ea3f29c67df49
+22	502	7811041227101532	E:/SerialQT/Humidity/build/Desktop_Qt_6_8_3_MSVC2022_64bit-Debug/Humidity_autogen/timestamp	726ea3f29c67df49
+22	502	7811041227101532	E:/SerialQT/Humidity/build/Desktop_Qt_6_8_3_MSVC2022_64bit-Debug/Humidity_autogen/mocs_compilation.cpp	726ea3f29c67df49
+512	3580	7811041227876466	CMakeFiles/Humidity.dir/main.cpp.obj	4a97b3c2df18b562
+516	3593	7811041227916460	CMakeFiles/Humidity.dir/deb.cpp.obj	e9c13048c61cee84
+510	3604	7811041227846433	CMakeFiles/Humidity.dir/Humidity_autogen/mocs_compilation.cpp.obj	2512151a5aca71
+518	3616	7811041227936468	CMakeFiles/Humidity.dir/sql.cpp.obj	8a098ddc4ecaf85f
+514	3916	7811041227896468	CMakeFiles/Humidity.dir/mainwindow.cpp.obj	4ac0faa30d14d2b0
+3916	4411	7811041261917908	Humidity.exe	25f235baa2203ea3
