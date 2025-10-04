@@ -109,9 +109,6 @@ public:
     QPushButton *set_light_bt;
     QSlider *horizontalSlider;
     QSpinBox *spinBox;
-    QPushButton *pushButtonModBus;
-    QLabel *label;
-    QCheckBox *ModbusCheck;
     QPushButton *pushButton_9Clear2;
     QPushButton *pushButton_6X2;
     QPushButton *pushButtonD1;
@@ -122,6 +119,12 @@ public:
     QPushButton *pushButtonD2;
     QLabel *setlightNumla_2;
     QLabel *setlightNumla;
+    QLabel *label;
+    QCheckBox *ModbusCheck;
+    QPushButton *pushButtonModBus;
+    QLabel *label_2;
+    QPushButton *pushButtoSerial;
+    QCheckBox *ChecSerial;
     QMenuBar *menubar;
     QStatusBar *statusbar;
     QToolBar *toolBar;
@@ -374,7 +377,7 @@ public:
         line_4->setFrameShadow(QFrame::Shadow::Sunken);
         layoutWidget = new QWidget(centralwidget);
         layoutWidget->setObjectName("layoutWidget");
-        layoutWidget->setGeometry(QRect(80, 0, 761, 71));
+        layoutWidget->setGeometry(QRect(230, 0, 621, 71));
         horizontalLayout = new QHBoxLayout(layoutWidget);
         horizontalLayout->setObjectName("horizontalLayout");
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
@@ -677,7 +680,7 @@ public:
 
         groupBox = new QGroupBox(centralwidget);
         groupBox->setObjectName("groupBox");
-        groupBox->setGeometry(QRect(10, 100, 251, 151));
+        groupBox->setGeometry(QRect(10, 90, 251, 161));
         groupBox->setFont(font4);
         layoutWidget_3 = new QWidget(groupBox);
         layoutWidget_3->setObjectName("layoutWidget_3");
@@ -786,15 +789,6 @@ public:
         spinBox = new QSpinBox(centralwidget);
         spinBox->setObjectName("spinBox");
         spinBox->setGeometry(QRect(720, 600, 61, 31));
-        pushButtonModBus = new QPushButton(centralwidget);
-        pushButtonModBus->setObjectName("pushButtonModBus");
-        pushButtonModBus->setGeometry(QRect(970, 10, 61, 51));
-        label = new QLabel(centralwidget);
-        label->setObjectName("label");
-        label->setGeometry(QRect(850, 10, 221, 61));
-        ModbusCheck = new QCheckBox(centralwidget);
-        ModbusCheck->setObjectName("ModbusCheck");
-        ModbusCheck->setGeometry(QRect(1040, 30, 99, 24));
         pushButton_9Clear2 = new QPushButton(centralwidget);
         pushButton_9Clear2->setObjectName("pushButton_9Clear2");
         pushButton_9Clear2->setGeometry(QRect(440, 600, 41, 41));
@@ -838,8 +832,27 @@ public:
         setlightNumla->setGeometry(QRect(650, 489, 31, 21));
         setlightNumla->setFont(font9);
         setlightNumla->setAlignment(Qt::AlignmentFlag::AlignCenter);
+        label = new QLabel(centralwidget);
+        label->setObjectName("label");
+        label->setGeometry(QRect(10, 10, 221, 61));
+        ModbusCheck = new QCheckBox(centralwidget);
+        ModbusCheck->setObjectName("ModbusCheck");
+        ModbusCheck->setGeometry(QRect(180, 30, 99, 24));
+        pushButtonModBus = new QPushButton(centralwidget);
+        pushButtonModBus->setObjectName("pushButtonModBus");
+        pushButtonModBus->setGeometry(QRect(110, 10, 61, 51));
+        label_2 = new QLabel(centralwidget);
+        label_2->setObjectName("label_2");
+        label_2->setGeometry(QRect(860, 10, 221, 61));
+        pushButtoSerial = new QPushButton(centralwidget);
+        pushButtoSerial->setObjectName("pushButtoSerial");
+        pushButtoSerial->setGeometry(QRect(940, 10, 121, 51));
+        ChecSerial = new QCheckBox(centralwidget);
+        ChecSerial->setObjectName("ChecSerial");
+        ChecSerial->setGeometry(QRect(1060, 640, 16, 16));
         MainWindow->setCentralWidget(centralwidget);
-        label->raise();
+        setlightNumla_2->raise();
+        setlightNumla->raise();
         groupBox_6->raise();
         layoutWidget->raise();
         frame_2->raise();
@@ -851,8 +864,6 @@ public:
         progressBar->raise();
         groupBox_5->raise();
         spinBox->raise();
-        pushButtonModBus->raise();
-        ModbusCheck->raise();
         pushButton_9Clear2->raise();
         pushButton_6X2->raise();
         pushButtonD1->raise();
@@ -861,6 +872,12 @@ public:
         pushButtonX1->raise();
         pushButton_3Shua2->raise();
         pushButtonD2->raise();
+        label->raise();
+        ModbusCheck->raise();
+        pushButtonModBus->raise();
+        label_2->raise();
+        pushButtoSerial->raise();
+        ChecSerial->raise();
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
         menubar->setGeometry(QRect(0, 0, 1080, 24));
@@ -937,9 +954,6 @@ public:
         labelTuqi->setText(QString());
         groupBox_5->setTitle(QCoreApplication::translate("MainWindow", "\345\205\211\345\274\272\346\216\247\345\210\266", nullptr));
         set_light_bt->setText(QCoreApplication::translate("MainWindow", "\350\256\276\345\256\232", nullptr));
-        pushButtonModBus->setText(QString());
-        label->setText(QCoreApplication::translate("MainWindow", "ModBus\350\256\276\347\275\256", nullptr));
-        ModbusCheck->setText(QString());
         pushButton_9Clear2->setText(QString());
         pushButton_6X2->setText(QString());
         pushButtonD1->setText(QString());
@@ -950,6 +964,12 @@ public:
         pushButtonD2->setText(QString());
         setlightNumla_2->setText(QCoreApplication::translate("MainWindow", "%", nullptr));
         setlightNumla->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
+        label->setText(QCoreApplication::translate("MainWindow", "ModBus\350\256\276\347\275\256", nullptr));
+        ModbusCheck->setText(QString());
+        pushButtonModBus->setText(QString());
+        label_2->setText(QCoreApplication::translate("MainWindow", "\346\231\256\351\200\232\344\270\262\345\217\243", nullptr));
+        pushButtoSerial->setText(QString());
+        ChecSerial->setText(QString());
         toolBar->setWindowTitle(QCoreApplication::translate("MainWindow", "toolBar", nullptr));
     } // retranslateUi
 

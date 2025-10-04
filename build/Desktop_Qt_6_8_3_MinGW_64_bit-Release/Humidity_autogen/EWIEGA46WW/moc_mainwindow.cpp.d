@@ -37,6 +37,7 @@ E:/SerialQT/Humidity/build/Desktop_Qt_6_8_3_MinGW_64_bit-Release/Humidity_autoge
   E:/QT/6.8.3/mingw_64/include/QtCore/QString \
   E:/QT/6.8.3/mingw_64/include/QtCore/QStringDecoder \
   E:/QT/6.8.3/mingw_64/include/QtCore/QThread \
+  E:/QT/6.8.3/mingw_64/include/QtCore/QTimer \
   E:/QT/6.8.3/mingw_64/include/QtCore/QUrl \
   E:/QT/6.8.3/mingw_64/include/QtCore/QVariant \
   E:/QT/6.8.3/mingw_64/include/QtCore/QtMath \
@@ -519,6 +520,9 @@ E:/SerialQT/Humidity/build/Desktop_Qt_6_8_3_MinGW_64_bit-Release/Humidity_autoge
   E:/QT/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
   E:/SerialQT/Humidity/deb.h \
   E:/SerialQT/Humidity/mymodbus.h \
+  E:/SerialQT/Humidity/mymodbuswork.h \
+  E:/SerialQT/Humidity/myserials.h \
+  E:/SerialQT/Humidity/myserialwork.h \
   E:/SerialQT/Humidity/networkwork.h \
   E:/SerialQT/Humidity/sql.h \
   E:/SerialQT/Humidity/sqlitework.h

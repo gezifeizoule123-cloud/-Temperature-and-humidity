@@ -631,7 +631,7 @@ QTableWidget
       <rect>
        <x>150</x>
        <y>70</y>
-       <width>211</width>
+       <width>231</width>
        <height>41</height>
       </rect>
      </property>
@@ -641,7 +641,7 @@ QTableWidget
       <rect>
        <x>150</x>
        <y>140</y>
-       <width>211</width>
+       <width>231</width>
        <height>41</height>
       </rect>
      </property>
@@ -664,7 +664,7 @@ QTableWidget
       <rect>
        <x>150</x>
        <y>210</y>
-       <width>211</width>
+       <width>231</width>
        <height>41</height>
       </rect>
      </property>
@@ -687,7 +687,7 @@ QTableWidget
       <rect>
        <x>150</x>
        <y>280</y>
-       <width>211</width>
+       <width>231</width>
        <height>41</height>
       </rect>
      </property>
@@ -710,7 +710,7 @@ QTableWidget
       <rect>
        <x>150</x>
        <y>360</y>
-       <width>211</width>
+       <width>231</width>
        <height>41</height>
       </rect>
      </property>
@@ -733,7 +733,7 @@ QTableWidget
       <rect>
        <x>150</x>
        <y>440</y>
-       <width>211</width>
+       <width>231</width>
        <height>41</height>
       </rect>
      </property>

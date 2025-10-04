@@ -1,6 +1,7 @@
 #ifndef MYMODBUS_H
 #define MYMODBUS_H
 
+#include "mymodbuswork.h"
 #include <QMainWindow>
 #include<QSerialPort>
 #include<QModbusDataUnit>
@@ -22,7 +23,7 @@ public:
     explicit MyModBus(QWidget *parent = nullptr);
     ~MyModBus();
     void initUi();
-
+    void  initModBusThread();
 private slots:
     void on_MasterOrSlave_currentIndexChanged(int index);
 
@@ -30,6 +31,8 @@ private slots:
 
 private:
     Ui::MyModBus *ui;
+    QThread *m_ModBusThread;
+    MyModBusWork *m_ModBusWork;
 };
 
 #endif // MYMODBUS_H

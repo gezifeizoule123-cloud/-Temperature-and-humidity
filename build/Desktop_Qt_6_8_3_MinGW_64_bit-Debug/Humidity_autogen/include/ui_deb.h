@@ -39,7 +39,7 @@ public:
     {
         if (Deb->objectName().isEmpty())
             Deb->setObjectName("Deb");
-        Deb->resize(529, 495);
+        Deb->resize(538, 443);
         Deb->setStyleSheet(QString::fromUtf8("/* \346\267\241\346\243\225\350\211\262\346\270\251\346\232\226\350\203\214\346\231\257 - QWidget\344\270\273\347\252\227\345\217\243 */\n"
 "QWidget {\n"
 "    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,\n"

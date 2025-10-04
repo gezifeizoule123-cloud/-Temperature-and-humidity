@@ -2,14 +2,15 @@
 #include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent),m_deb(nullptr),m_database(nullptr),m_modbus(nullptr)
+    : QMainWindow(parent),m_deb(nullptr),m_database(nullptr),m_modbus(nullptr),m_serials(nullptr)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
     imagePath=QApplication::applicationDirPath();
+
     initUi();
     initMember();
-    initNetworkThread();
+
 }
 
 MainWindow::~MainWindow()
@@ -19,6 +20,7 @@ MainWindow::~MainWindow()
     delete m_modbus;
     m_modbus=nullptr;
     m_database=nullptr;
+
     if(m_networkThread&&m_networkThread->isRunning()){
         m_networkThread->quit();
         m_networkThread->wait(3000);
@@ -34,16 +36,9 @@ MainWindow::~MainWindow()
         }
         delete tcpSocket;
     }
-    if(m_sqlThread&&m_sqlThread->isRunning()){
-        m_sqlThread->quit();
-        m_sqlThread->wait(3000);
-        if(m_sqlThread->isRunning()){
-            m_sqlThread->terminate();
-            m_sqlThread->wait();
-        }
-    }
-    delete m_sqliteWork;
-    m_sqliteWork=nullptr;
+
+    delete m_serials;
+    m_serials=nullptr;
 
 }
 
@@ -70,8 +65,8 @@ void MainWindow::initUi()
     ui->led->setIcon(QIcon(imagePath+"/img/led_off.png"));
     ui->auto_2->setIcon(QIcon(imagePath+"/img/auto.png"));
 
-    ui->pushButtonModBus->setIcon(QIcon(imagePath+"\\img\\modbus_32.png"));
-
+    ui->pushButtonModBus->setIcon(QIcon(imagePath+"/img/switch.png"));
+    ui->pushButtoSerial->setIcon(QIcon(imagePath+"/img/switch.png"));
     ui->labelIp->setPixmap(QPixmap(imagePath+"/img/ip.png"));
     ui->labelIp->setScaledContents(true);
     ui->labelTuqi->setPixmap(QPixmap(imagePath+"/img/duan.png"));
@@ -104,6 +99,8 @@ void MainWindow::initUi()
     ui->pushButton_5Clear1->setIcon(QIcon(imagePath+"/img/clearS.png"));
     ui->set_yu_bt->setIcon(QIcon(imagePath+"/img/set.png"));
     ui->clear_yu_bt->setIcon(QIcon(imagePath+"/img/clear_yu.png"));
+    ui->ChecSerial->setEnabled(false);
+
 
 }
 
@@ -119,7 +116,12 @@ void MainWindow::initMember()
     tcpServer = new QTcpServer(this);
     tcpSocket=new QTcpSocket(this);
     connect(tcpServer,&QTcpServer::newConnection,this,&MainWindow::newConnection_Slot);
-    initDataBaseThread();
+    connect(m_serials,&MySerials::isclose,this,[this](){
+        ui->ChecSerial->setCheckState(Qt::Unchecked);
+    });
+
+    initNetworkThread();
+
 
 }
 
@@ -138,19 +140,7 @@ void MainWindow::initNetworkThread()
 
 }
 
-void MainWindow::initDataBaseThread()
-{
-    m_sqlThread=new QThread(this);
-    m_sqliteWork=new SqliteWork;
-    m_sqliteWork->moveToThread(m_sqlThread);
-    connect(m_sqlThread, &QThread::started, m_sqliteWork, &SqliteWork::initConnect);
-    connect(m_database,&Sql::requestInsert,m_sqliteWork,&SqliteWork::receiveInsert);
-    connect(m_sqlThread,&QThread::finished,m_database,&Sql::deleteLater);
-    connect(m_sqliteWork,&SqliteWork::isOkInser,m_database,&Sql::autoRef);
-    connect(m_database,&Sql::clearData,m_sqliteWork,&SqliteWork::clearData);
-    connect(m_sqliteWork, &SqliteWork::clearFinished, m_database, &Sql::onClearFinished);
-    m_sqlThread->start();
-}
+
 
 
 void MainWindow::on_debug_triggered()
@@ -190,6 +180,11 @@ void MainWindow::on_ModbusCheck_stateChanged(int arg1)
     case Qt::Unchecked:      // 值为 0
         // 未选中状态
         ui->pushButtonModBus->setEnabled(true);
+        ui->groupBox->setEnabled(true);
+        ui->groupBox_2->setEnabled(true);
+        ui->ChecSerial->setEnabled(true);
+        ui->pushButtoSerial->setEnabled(true);
+        ModbusOpen=false;
         break;
 
     // case Qt::PartiallyChecked: // 值为 1
@@ -197,8 +192,12 @@ void MainWindow::on_ModbusCheck_stateChanged(int arg1)
     //     break;
 
     case Qt::Checked:
-    ui->pushButtonModBus->setEnabled(false);        // 值为 2
-        // 选中状态
+    ui->pushButtonModBus->setEnabled(false);        // 值为 2  // 选中状态
+    ui->groupBox->setEnabled(false);
+    ui->groupBox_2->setEnabled(false);
+    ui->ChecSerial->setEnabled(false);
+    ui->pushButtoSerial->setEnabled(false);
+    ModbusOpen=true;
         break;
     }
 
@@ -216,7 +215,7 @@ void MainWindow::newConnection_Slot()
 
 void MainWindow::BackDataParsing(QMap<QString, float> numberData,QMap<QString,QString>strnumber)
 {
-
+       qDebug() << "收到givedisplay信号";
     temp_data = numberData["temp"];
     humi_data = numberData["humi"];
     light_data = numberData["light"];
@@ -479,17 +478,23 @@ void MainWindow::on_openwif_triggered()
         ui->label_6wIFI->setPixmap(QPixmap(imagePath+"/img/wifi_on.png"));
         ui->label_6wIFI->setScaledContents(true);
         ui->openwif->setIcon(QIcon(imagePath+"/img/open.png"));
+        if(ModbusOpen){
+            //执行modbus连接
+        }else{
         if(MS){
             tcpServer->listen(QHostAddress::AnyIPv4,ui->lineEdit_2Port->text().toInt());
-
+            ui->ModbusCheck->setEnabled(false);
         }else{
             tcpSocket->connectToHost(ui->lineEditAddress->text(),ui->lineEdit_2Port->text().toInt());
             connect(tcpSocket,&QTcpSocket::connected,this,&MainWindow::connected_Slot);
+            ui->ModbusCheck->setEnabled(false);
+        }
         }
     }else{
         ui->label_6wIFI->setPixmap(QPixmap(imagePath+"/img/wifi_off.png"));
         ui->label_6wIFI->setScaledContents(true);
         ui->openwif->setIcon(QIcon(imagePath+"/img/close.png"));
+        ui->ModbusCheck->setEnabled(true);
         tcpServer->close();
         tcpSocket->close();
     }
@@ -668,7 +673,8 @@ void MainWindow::on_set_yu_bt_clicked()
                    Enrain     + " " + "rain:"+ ui->rain_yu_la->text()+";"+
                    Entemp     + " " + "temp:"+ ui->temp_yu_la->text()+";"+
                    Enlight    + " " + "light:"+ui->light_yu_la->text();
-
+    sendThrsholdData(sendThrshold.toUtf8());
+    connect(this,&MainWindow::sendThrsholdData,m_serials,&MySerials::sendCtr);
     tcpSocket->write(sendThrshold.toUtf8());
 }
 
@@ -706,5 +712,48 @@ void MainWindow::onDebSendData(const QString &data)
     }else{
         ui->statusbar->showMessage("未连接,发送不了");
     }
+}
+
+
+void MainWindow::on_ChecSerial_stateChanged(int arg1)
+{
+    switch(arg1) {
+    case Qt::Unchecked:      // 值为 0
+        // 未选中状态
+        ui->pushButtonModBus->setEnabled(true);
+        ui->groupBox->setEnabled(true);
+        ui->groupBox_2->setEnabled(true);
+        ui->ModbusCheck->setEnabled(true);
+        break;
+
+        // case Qt::PartiallyChecked: // 值为 1
+        //     // 部分选中状态（三态复选框）
+        //     break;
+
+    case Qt::Checked:
+        ui->pushButtonModBus->setEnabled(false);        // 值为 2  // 选中状态
+        ui->groupBox->setEnabled(false);
+        ui->groupBox_2->setEnabled(false);
+        ui->ModbusCheck->setEnabled(false);
+        break;
+    }
+}
+
+
+void MainWindow::on_pushButtoSerial_clicked()
+{
+    m_serials=new MySerials;
+    m_serials->show();
+    if(flag_Sw=true){
+        on_openwif_triggered();}
+    ui->ChecSerial->setCheckState(Qt::Checked);
+    connect(m_serials,&MySerials::giveDBandDisplay,this,&MainWindow::BackDataParsing);
+    connect(m_serials, &MySerials::isclose, this, [this](){
+        ui->ChecSerial->setCheckState(Qt::Unchecked);
+        m_serials = nullptr;  // 在这里置空
+    });
+
+    m_serials->setAttribute(Qt::WA_DeleteOnClose);
+
 }
 

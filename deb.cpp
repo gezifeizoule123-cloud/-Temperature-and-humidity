@@ -12,7 +12,7 @@ Deb::Deb(QWidget *parent)
     ui->clear_bt->setIcon(QIcon(imagePath+"/img/clear_b.png"));
     ui->pushButton_2->setIcon(QIcon(imagePath+"/img/clearS.png"));
     ui->send_bt->setIcon(QIcon(imagePath+"/img/send.png"));
-
+    ui->rec_edi->setEnabled(false);
 }
 
 Deb::~Deb()
@@ -22,7 +22,7 @@ Deb::~Deb()
 
 void Deb::DisplayData(QString data)
 {
-    ui->rec_edi->appendPlainText("->"+data);
+    ui->rec_edi->appendPlainText(data);
 }
 
 

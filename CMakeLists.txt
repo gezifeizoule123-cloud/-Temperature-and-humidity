@@ -5,6 +5,9 @@ find_package(Qt6 6.5 REQUIRED COMPONENTS Core Widgets Charts Gui SerialBus Seria
 find_package(Qt6 REQUIRED COMPONENTS Core)
 find_package(Qt6 REQUIRED COMPONENTS Core)
 find_package(Qt6 REQUIRED COMPONENTS Core)
+find_package(Qt6 REQUIRED COMPONENTS Core)
+find_package(Qt6 REQUIRED COMPONENTS Core)
+find_package(Qt6 REQUIRED COMPONENTS Core)
 
 qt_standard_project_setup()
 
@@ -20,6 +23,10 @@ qt_add_executable(Humidity
     mymodbus.h mymodbus.cpp mymodbus.ui
     networkwork.h networkwork.cpp
     sqlitework.h sqlitework.cpp
+    myserials.h myserials.cpp myserials.ui
+    myserialwork.h myserialwork.cpp
+    mymodbuswork.h mymodbuswork.cpp
+
 
 
 
@@ -36,6 +43,9 @@ target_link_libraries(Humidity
         Qt::Network
         Qt::Sql
 )
+target_link_libraries(Humidity PRIVATE Qt6::Core)
+target_link_libraries(Humidity PRIVATE Qt6::Core)
+target_link_libraries(Humidity PRIVATE Qt6::Core)
 target_link_libraries(Humidity PRIVATE Qt6::Core)
 target_link_libraries(Humidity PRIVATE Qt6::Core)
 target_link_libraries(Humidity PRIVATE Qt6::Core)

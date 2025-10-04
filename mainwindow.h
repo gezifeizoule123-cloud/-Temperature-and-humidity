@@ -13,6 +13,7 @@
 #include <string>
 #include <QDebug>
 #include"deb.h"
+#include "mymodbuswork.h"
 #include"sql.h"
 #include"mymodbus.h"
 #include<QNetworkAccessManager>
@@ -21,6 +22,8 @@
 #include"networkwork.h"
 #include<QThread>
 #include"sqlitework.h"
+#include"myserials.h"
+#include"myserialwork.h"
 QT_BEGIN_NAMESPACE
 //发送缓冲区
 extern QString strbuf;
@@ -29,6 +32,7 @@ namespace Ui {
 class MainWindow;
 }
 QT_END_NAMESPACE
+
 
 class MainWindow : public QMainWindow
 {
@@ -40,17 +44,30 @@ public:
     void initUi();
     void initMember();
     void initNetworkThread();
-    void initDataBaseThread();
 
 
-public:
+
+
+
+private:
+    Deb *m_deb;
+
+    Sql *m_database;
+
+
+    MyModBus *m_modbus;
+
+
     QTcpServer *tcpServer;
     QTcpSocket *tcpSocket;
     NetWorkWork *m_networkwork;
     QThread *m_networkThread;
-    QThread * m_sqlThread;
-    SqliteWork *m_sqliteWork;
 
+    MySerials *m_serials;
+
+
+    //定时器1
+    QTimer *timer;
 
 private slots:
     void on_debug_triggered();
@@ -111,6 +128,11 @@ private slots:
 
     void on_set_light_bt_clicked();
     void onDebSendData(const QString &data);
+    void on_ChecSerial_stateChanged(int arg1);
+
+    void on_pushButtoSerial_clicked();
+signals:
+    void  sendThrsholdData(QString s);
 private:
     void createTableOne();
     void createTableTwo();
@@ -121,13 +143,11 @@ private:
 private:
     Ui::MainWindow *ui;
     QString imagePath;
-    Deb *m_deb;
-    Sql *m_database;
-    MyModBus *m_modbus;
+
     bool MS = true;//t 主机
     bool flag_Sw=false;//
     bool run_mode=true;//自动
-
+    bool ModbusOpen=false;
     //继电器
     bool relaySw=false;
 
@@ -151,8 +171,7 @@ private:
 
     //光强
     short light_pwm;
-    //定时器1
-    QTimer *timer;
+
 
 
 

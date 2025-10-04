@@ -20,6 +20,21 @@ Sql::~Sql()
     delete ui;
 }
 
+void Sql::initDataBaseThread()
+{
+    m_sqlThread=new QThread(this);
+    m_sqliteWork=new SqliteWork;
+    m_sqliteWork->moveToThread(m_sqlThread);
+    connect(m_sqlThread, &QThread::started, m_sqliteWork, &SqliteWork::initConnect);
+    connect(this,&Sql::requestInsert,m_sqliteWork,&SqliteWork::receiveInsert);
+    connect(m_sqlThread,&QThread::finished,this,&Sql::deleteLater);
+    connect(m_sqliteWork,&SqliteWork::isOkInser,this,&Sql::autoRef);
+    connect(this,&Sql::clearData,m_sqliteWork,&SqliteWork::clearData);
+    connect(m_sqliteWork, &SqliteWork::clearFinished,this, &Sql::onClearFinished);
+    m_sqlThread->start();
+}
+
+
 void Sql::UpdataToDataBase(float Stemp, float Shumi, float Slight, float Ssoil, float Smq2, float Srain)
 {
     emit requestInsert(Stemp,Shumi, Slight, Ssoil, Smq2,Srain);
@@ -46,7 +61,7 @@ void Sql::initDatabase()
                "rain REAL)");
     m_tableMod = new QSqlQueryModel;
 
-
+    initDataBaseThread();
 }
 
 void Sql::initUi()

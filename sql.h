@@ -1,6 +1,7 @@
 #ifndef SQL_H
 #define SQL_H
 
+#include "sqlitework.h"
 #include <QWidget>
 #include<QSql>
 #include<QSqlDatabase>
@@ -25,6 +26,7 @@ public:
 
    void SelectData();
      void autoRef(bool t);
+   void initDataBaseThread();
 signals:
    void requestInsert(float Stemp,float  Shumi,float  Slight,float  Ssoil,float  Smq2,float  Srain);
     void clearData();
@@ -52,6 +54,8 @@ private:
     Ui::Sql *ui;
     QSqlQueryModel *m_tableMod;
     bool isauto=true;//自动实时刷新
+    QThread * m_sqlThread;
+    SqliteWork *m_sqliteWork;
 
 };
 

@@ -912,6 +912,12 @@ Humidity_autogen/timestamp: \
 	E:/SerialQT/Humidity/mainwindow.h \
 	E:/SerialQT/Humidity/mymodbus.cpp \
 	E:/SerialQT/Humidity/mymodbus.h \
+	E:/SerialQT/Humidity/mymodbuswork.cpp \
+	E:/SerialQT/Humidity/mymodbuswork.h \
+	E:/SerialQT/Humidity/myserials.cpp \
+	E:/SerialQT/Humidity/myserials.h \
+	E:/SerialQT/Humidity/myserialwork.cpp \
+	E:/SerialQT/Humidity/myserialwork.h \
 	E:/SerialQT/Humidity/networkwork.cpp \
 	E:/SerialQT/Humidity/networkwork.h \
 	E:/SerialQT/Humidity/sql.cpp \
@@ -921,5 +927,6 @@ Humidity_autogen/timestamp: \
 	E:/SerialQT/Humidity/deb.ui \
 	E:/SerialQT/Humidity/mainwindow.ui \
 	E:/SerialQT/Humidity/mymodbus.ui \
+	E:/SerialQT/Humidity/myserials.ui \
 	E:/SerialQT/Humidity/sql.ui \
 	E:/QT/Tools/CMake_64/bin/cmake.exe

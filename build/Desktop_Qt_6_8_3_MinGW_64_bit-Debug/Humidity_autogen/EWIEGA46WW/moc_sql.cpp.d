@@ -1,5 +1,6 @@
 E:/SerialQT/Humidity/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/Humidity_autogen/EWIEGA46WW/moc_sql.cpp: E:/SerialQT/Humidity/sql.h \
   E:/SerialQT/Humidity/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/Humidity_autogen/moc_predefs.h \
+  E:/QT/6.8.3/mingw_64/include/QtCore/QObject \
   E:/QT/6.8.3/mingw_64/include/QtCore/QThread \
   E:/QT/6.8.3/mingw_64/include/QtCore/q20functional.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/q20iterator.h \
@@ -380,4 +381,5 @@ E:/SerialQT/Humidity/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/Humidity_autogen/
   E:/QT/Tools/mingw1310_64/x86_64-w64-mingw32/include/sys/types.h \
   E:/QT/Tools/mingw1310_64/x86_64-w64-mingw32/include/time.h \
   E:/QT/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
-  E:/QT/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h
+  E:/QT/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
+  E:/SerialQT/Humidity/sqlitework.h
