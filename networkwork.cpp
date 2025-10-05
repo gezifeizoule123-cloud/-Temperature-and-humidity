@@ -3,13 +3,13 @@
 #include<QThread>
 NetWorkWork::NetWorkWork(QObject *parent)
     : QObject{parent}
-{
-      qDebug() << "NetworkWorker构造函数在线程:"<< QThread::currentThread();
+{//
+      //qDebug() << "NetworkWorker构造函数在线程:"<< QThread::currentThread();
 }
 
 void NetWorkWork::processData(QByteArray rawData, QString encoding)
 {
-    qDebug() << "processData 在线程:" << QThread::currentThread();//确保我采用的元对象调用线程触发
+    //qDebug() << "processData 在线程:" << QThread::currentThread();//确保我采用的元对象调用线程触发
     if(rawData.isEmpty()){
         emit errorOcurred("错误，数据为空");
         return;

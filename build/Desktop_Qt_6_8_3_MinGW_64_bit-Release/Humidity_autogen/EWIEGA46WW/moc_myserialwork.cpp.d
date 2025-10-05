@@ -1,5 +1,6 @@
 E:/SerialQT/Humidity/build/Desktop_Qt_6_8_3_MinGW_64_bit-Release/Humidity_autogen/EWIEGA46WW/moc_myserialwork.cpp: E:/SerialQT/Humidity/myserialwork.h \
   E:/SerialQT/Humidity/build/Desktop_Qt_6_8_3_MinGW_64_bit-Release/Humidity_autogen/moc_predefs.h \
+  E:/QT/6.8.3/mingw_64/include/QtCore/QMap \
   E:/QT/6.8.3/mingw_64/include/QtCore/QObject \
   E:/QT/6.8.3/mingw_64/include/QtCore/q20functional.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/q20memory.h \
@@ -48,6 +49,7 @@ E:/SerialQT/Humidity/build/Desktop_Qt_6_8_3_MinGW_64_bit-Release/Humidity_autoge
   E:/QT/6.8.3/mingw_64/include/QtCore/qlist.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qlogging.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qmalloc.h \
+  E:/QT/6.8.3/mingw_64/include/QtCore/qmap.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qmath.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qmetacontainer.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qmetatype.h \
@@ -67,6 +69,7 @@ E:/SerialQT/Humidity/build/Desktop_Qt_6_8_3_MinGW_64_bit-Release/Humidity_autoge
   E:/QT/6.8.3/mingw_64/include/QtCore/qscopedpointer.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qscopeguard.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qshareddata.h \
+  E:/QT/6.8.3/mingw_64/include/QtCore/qshareddata_impl.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qstring.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qstringalgorithms.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qstringbuilder.h \

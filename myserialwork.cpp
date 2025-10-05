@@ -50,7 +50,7 @@ QString MySerialWork::analysisData(QString data)
     st6 = st6.left(st6.indexOf("}"));
     numberData["rain"] = st6.toFloat();
     strnumber["rain"]=st6;
-     qDebug() << "解析结果 - 温度:" << strnumber["temp"] << "湿度:" << strnumber["humi"];
+     //qDebug() << "解析结果 - 温度:" << strnumber["temp"] << "湿度:" << strnumber["humi"];
     emit sendMainDisplay(numberData,strnumber);
     return data;
 }
@@ -85,6 +85,7 @@ void MySerialWork::SendWrite(QByteArray data)
     if(!data.isEmpty()){
 
         write(data);
+        emit writeOk();
     }
 }
 

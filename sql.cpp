@@ -1,7 +1,7 @@
 #include "sql.h"
 #include "ui_sql.h"
 #include <qmessagebox.h>
-
+#include<QSqlRecord>
 Sql::Sql(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::Sql)
@@ -12,6 +12,7 @@ Sql::Sql(QWidget *parent)
     ui->icon->setScaledContents(true);
     initUi();
     initDatabase();
+
 
 }
 
@@ -59,6 +60,14 @@ void Sql::initDatabase()
                "soil REAL, "
                "mq2 REAL, "
                "rain REAL)");
+    if( !query.exec("CREATE TABLE IF NOT EXISTS login ("
+                   "name VARCHAR(50) PRIMARY KEY, "
+                   "password VARCHAR(50) NOT NULL, "
+                    "type VARCHAR(20) NOT NULL)")){qDebug()<<"login 创建失败";}
+
+
+
+
     m_tableMod = new QSqlQueryModel;
 
     initDataBaseThread();
@@ -193,6 +202,37 @@ void Sql::on_clear_bt_clicked()
 
 }
 
+void Sql::userIn(const islogin &s)
+{
+       qDebug()<<"testuserin";
+
+    QSqlQuery query(QSqlDatabase::database("connectionA"));
+    query.prepare("SELECT type FROM login WHERE login.name=? AND login.password=?;");
+    query.addBindValue(s.name);
+    query.addBindValue(s.password);
+
+    qDebug()<<query.boundValues();
+
+    if(query.exec()){
+     qDebug()<<"此处执行sql";
+        QSqlRecord r;
+        if(query.next()){
+            r=query.record();
+            QString type=r.value("type").toString();
+            qDebug()<<type;
+            if(type=="管理员"){
+                qDebug()<<"此处为管理员登录";
+                emit signaluserIn(true);
+
+            }else{
+                qDebug()<<"此处员登录";
+                emit signaluserIn(false);
+            }
+        }
+    }
+
+}
+
 void Sql::autoRef(bool t)
 {
     if(t){
@@ -215,8 +255,8 @@ void Sql::onClearFinished(bool success)
             m_tableMod->setQuery(query);
             ui->tableView->setModel(m_tableMod);
         }
-        qDebug() << "数据库清除完成，界面已刷新";
+        //qDebug() << "数据库清除完成，界面已刷新";
     } else {
-        qDebug() << "数据库清除失败";
+        //qDebug() << "数据库清除失败";
     }
 }

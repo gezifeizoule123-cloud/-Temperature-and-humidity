@@ -81,8 +81,49 @@ void MyModBus::initModBusThread()
     m_ModBusWork=new  MyModBusWork ;
     m_ModBusWork->moveToThread(m_ModBusThread);
     //此处标记要写的内容-----------------------------------------
+    connect(this,&MyModBus::createModBus,m_ModBusWork,&MyModBusWork::createConnect);
 
     m_ModBusThread->start();
+
+}
+
+void MyModBus::creatModbus()
+{
+    Settings s;
+    if(ui->MasterOrSlave->currentText()=="Master"){
+        if(ui->mType->currentText()=="TCP"){
+            s.isTCP=true;
+        }else{
+            s.isTCP=false;
+        }
+        s.isMaster=true;
+    }else{
+        if(ui->mType->currentText()=="TCP"){
+            s.isTCP=true;
+        }else{
+            s.isTCP=false;
+        }
+     s.isMaster=false;
+    }
+    if(!ui->mIP_COM->text().isEmpty()){
+        s.address=ui->mIP_COM->text();
+
+    }
+    if(!ui->m_Port->text().isEmpty()){
+        s.port=ui->m_Port->text().toUInt();
+    }
+    s.PortName = ui->portName->currentText();
+    s.BaudRate = ui->baudRate->currentData().value<QSerialPort::BaudRate>();
+    s.DataBits = ui->dataBits->currentData().value<QSerialPort::DataBits>();
+    s.StopBits = ui->stopBits->currentData().value<QSerialPort::StopBits>();
+    s.parity = ui->parity->currentData().value<QSerialPort::Parity>();
+    s.FlowControl = ui->flowControl->currentData().value<QSerialPort::FlowControl>();
+
+    emit createModBus(s);
+}
+
+void MyModBus::stopModBus()
+{
 
 }
 

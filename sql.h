@@ -8,7 +8,7 @@
 #include<QSqlQueryModel>
 #include<QSqlQuery>
 #include<QThread>
-
+#include"loginIDandPassword.h"
 namespace Ui {
 class Sql;
 }
@@ -27,9 +27,12 @@ public:
    void SelectData();
      void autoRef(bool t);
    void initDataBaseThread();
+     void searchPerson();
 signals:
    void requestInsert(float Stemp,float  Shumi,float  Slight,float  Ssoil,float  Smq2,float  Srain);
+    void isRoot(bool s);
     void clearData();
+    void signaluserIn(bool isRoot);
 public slots:
     void on_exit_bt_clicked();
     void onClearFinished(bool success);
@@ -49,7 +52,7 @@ public slots:
 
     void on_clear_bt_clicked();
 
-
+ void userIn(const islogin &s);
 private:
     Ui::Sql *ui;
     QSqlQueryModel *m_tableMod;

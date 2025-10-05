@@ -4,6 +4,8 @@ E:/SerialQT/Humidity/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/Humidity_autogen/
   E:/QT/6.8.3/mingw_64/include/QtCore/q20functional.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/q20memory.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/q20type_traits.h \
+  E:/QT/6.8.3/mingw_64/include/QtCore/q20utility.h \
+  E:/QT/6.8.3/mingw_64/include/QtCore/q23utility.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qalgorithms.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qanystringview.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qarraydata.h \
@@ -28,8 +30,10 @@ E:/SerialQT/Humidity/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/Humidity_autogen/
   E:/QT/6.8.3/mingw_64/include/QtCore/qcontainerfwd.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qcontainerinfo.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qcontainertools_impl.h \
+  E:/QT/6.8.3/mingw_64/include/QtCore/qcontiguouscache.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qdarwinhelpers.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qdatastream.h \
+  E:/QT/6.8.3/mingw_64/include/QtCore/qdebug.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qexceptionhandling.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qflags.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qfloat16.h \
@@ -39,7 +43,9 @@ E:/SerialQT/Humidity/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/Humidity_autogen/
   E:/QT/6.8.3/mingw_64/include/QtCore/qgenericatomic.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qglobal.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qglobalstatic.h \
+  E:/QT/6.8.3/mingw_64/include/QtCore/qhash.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qhashfunctions.h \
+  E:/QT/6.8.3/mingw_64/include/QtCore/qiodevice.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qiodevicebase.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qiterable.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qiterator.h \
@@ -47,6 +53,7 @@ E:/SerialQT/Humidity/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/Humidity_autogen/
   E:/QT/6.8.3/mingw_64/include/QtCore/qlist.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qlogging.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qmalloc.h \
+  E:/QT/6.8.3/mingw_64/include/QtCore/qmap.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qmath.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qmetacontainer.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qmetatype.h \
@@ -60,9 +67,16 @@ E:/SerialQT/Humidity/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/Humidity_autogen/
   E:/QT/6.8.3/mingw_64/include/QtCore/qoverload.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qpair.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qprocessordetection.h \
+  E:/QT/6.8.3/mingw_64/include/QtCore/qproperty.h \
+  E:/QT/6.8.3/mingw_64/include/QtCore/qpropertyprivate.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qrefcount.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qscopedpointer.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qscopeguard.h \
+  E:/QT/6.8.3/mingw_64/include/QtCore/qset.h \
+  E:/QT/6.8.3/mingw_64/include/QtCore/qshareddata.h \
+  E:/QT/6.8.3/mingw_64/include/QtCore/qshareddata_impl.h \
+  E:/QT/6.8.3/mingw_64/include/QtCore/qsharedpointer.h \
+  E:/QT/6.8.3/mingw_64/include/QtCore/qsharedpointer_impl.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qstring.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qstringalgorithms.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qstringbuilder.h \
@@ -86,6 +100,7 @@ E:/SerialQT/Humidity/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/Humidity_autogen/
   E:/QT/6.8.3/mingw_64/include/QtCore/qtdeprecationdefinitions.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qtdeprecationmarkers.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qtenvironmentvariables.h \
+  E:/QT/6.8.3/mingw_64/include/QtCore/qtextstream.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qtmetamacros.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qtnoop.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qtpreprocessorsupport.h \
@@ -97,9 +112,34 @@ E:/SerialQT/Humidity/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/Humidity_autogen/
   E:/QT/6.8.3/mingw_64/include/QtCore/qtypeinfo.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qtypes.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qutf8stringview.h \
+  E:/QT/6.8.3/mingw_64/include/QtCore/qvariant.h \
+  E:/QT/6.8.3/mingw_64/include/QtCore/qvarlengtharray.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qversiontagging.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qxptype_traits.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qyieldcpu.h \
+  E:/QT/6.8.3/mingw_64/include/QtSerialBus/QModbusClient \
+  E:/QT/6.8.3/mingw_64/include/QtSerialBus/QModbusRtuSerialClient \
+  E:/QT/6.8.3/mingw_64/include/QtSerialBus/QModbusRtuSerialMaster \
+  E:/QT/6.8.3/mingw_64/include/QtSerialBus/QModbusRtuSerialSlave \
+  E:/QT/6.8.3/mingw_64/include/QtSerialBus/QModbusTcpClient \
+  E:/QT/6.8.3/mingw_64/include/QtSerialBus/QModbusTcpServer \
+  E:/QT/6.8.3/mingw_64/include/QtSerialBus/qmodbusclient.h \
+  E:/QT/6.8.3/mingw_64/include/QtSerialBus/qmodbusdataunit.h \
+  E:/QT/6.8.3/mingw_64/include/QtSerialBus/qmodbusdevice.h \
+  E:/QT/6.8.3/mingw_64/include/QtSerialBus/qmodbuspdu.h \
+  E:/QT/6.8.3/mingw_64/include/QtSerialBus/qmodbusreply.h \
+  E:/QT/6.8.3/mingw_64/include/QtSerialBus/qmodbusrtuserialclient.h \
+  E:/QT/6.8.3/mingw_64/include/QtSerialBus/qmodbusrtuserialserver.h \
+  E:/QT/6.8.3/mingw_64/include/QtSerialBus/qmodbusserver.h \
+  E:/QT/6.8.3/mingw_64/include/QtSerialBus/qmodbustcpclient.h \
+  E:/QT/6.8.3/mingw_64/include/QtSerialBus/qmodbustcpserver.h \
+  E:/QT/6.8.3/mingw_64/include/QtSerialBus/qtserialbus-config.h \
+  E:/QT/6.8.3/mingw_64/include/QtSerialBus/qtserialbusexports.h \
+  E:/QT/6.8.3/mingw_64/include/QtSerialBus/qtserialbusglobal.h \
+  E:/QT/6.8.3/mingw_64/include/QtSerialPort/QSerialPort \
+  E:/QT/6.8.3/mingw_64/include/QtSerialPort/qserialport.h \
+  E:/QT/6.8.3/mingw_64/include/QtSerialPort/qserialportglobal.h \
+  E:/QT/6.8.3/mingw_64/include/QtSerialPort/qtserialportexports.h \
   E:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/algorithm \
   E:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/array \
   E:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/atomic \
@@ -193,6 +233,7 @@ E:/SerialQT/Humidity/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/Humidity_autogen/
   E:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cctype \
   E:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cerrno \
   E:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/chrono \
+  E:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/climits \
   E:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/clocale \
   E:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cmath \
   E:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/compare \
@@ -303,4 +344,5 @@ E:/SerialQT/Humidity/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/Humidity_autogen/
   E:/QT/Tools/mingw1310_64/x86_64-w64-mingw32/include/sys/types.h \
   E:/QT/Tools/mingw1310_64/x86_64-w64-mingw32/include/time.h \
   E:/QT/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
-  E:/QT/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h
+  E:/QT/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
+  E:/SerialQT/Humidity/ModbusSettings.h

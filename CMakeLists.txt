@@ -26,6 +26,9 @@ qt_add_executable(Humidity
     myserials.h myserials.cpp myserials.ui
     myserialwork.h myserialwork.cpp
     mymodbuswork.h mymodbuswork.cpp
+    ModbusSettings.h
+    login.h login.cpp login.ui
+    loginIDandPassword.h
 
 
 

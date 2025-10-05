@@ -38,8 +38,13 @@ struct qt_meta_tag_ZN8MyModBusE_t {};
 #ifdef QT_MOC_HAS_STRINGDATA
 static constexpr auto qt_meta_stringdata_ZN8MyModBusE = QtMocHelpers::stringData(
     "MyModBus",
-    "on_MasterOrSlave_currentIndexChanged",
+    "createModBus",
     "",
+    "Settings",
+    "s",
+    "creatModbus",
+    "stopModBus",
+    "on_MasterOrSlave_currentIndexChanged",
     "index",
     "on_mType_currentIndexChanged"
 );
@@ -53,20 +58,30 @@ Q_CONSTINIT static const uint qt_meta_data_ZN8MyModBusE[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-       2,   14, // methods
+       5,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       0,       // signalCount
+       1,       // signalCount
+
+ // signals: name, argc, parameters, tag, flags, initial metatype offsets
+       1,    1,   44,    2, 0x06,    1 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,   26,    2, 0x08,    1 /* Private */,
-       4,    1,   29,    2, 0x08,    3 /* Private */,
+       5,    0,   47,    2, 0x0a,    3 /* Public */,
+       6,    0,   48,    2, 0x0a,    4 /* Public */,
+       7,    1,   49,    2, 0x08,    5 /* Private */,
+       9,    1,   52,    2, 0x08,    7 /* Private */,
+
+ // signals: parameters
+    QMetaType::Void, 0x80000000 | 3,    4,
 
  // slots: parameters
-    QMetaType::Void, QMetaType::Int,    3,
-    QMetaType::Void, QMetaType::Int,    3,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::Int,    8,
+    QMetaType::Void, QMetaType::Int,    8,
 
        0        // eod
 };
@@ -80,6 +95,13 @@ Q_CONSTINIT const QMetaObject MyModBus::staticMetaObject = { {
     qt_incomplete_metaTypeArray<qt_meta_tag_ZN8MyModBusE_t,
         // Q_OBJECT / Q_GADGET
         QtPrivate::TypeAndForceComplete<MyModBus, std::true_type>,
+        // method 'createModBus'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const Settings &, std::false_type>,
+        // method 'creatModbus'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'stopModBus'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_MasterOrSlave_currentIndexChanged'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<int, std::false_type>,
@@ -95,9 +117,22 @@ void MyModBus::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
     auto *_t = static_cast<MyModBus *>(_o);
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
-        case 0: _t->on_MasterOrSlave_currentIndexChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 1: _t->on_mType_currentIndexChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 0: _t->createModBus((*reinterpret_cast< std::add_pointer_t<Settings>>(_a[1]))); break;
+        case 1: _t->creatModbus(); break;
+        case 2: _t->stopModBus(); break;
+        case 3: _t->on_MasterOrSlave_currentIndexChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 4: _t->on_mType_currentIndexChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
         default: ;
+        }
+    }
+    if (_c == QMetaObject::IndexOfMethod) {
+        int *result = reinterpret_cast<int *>(_a[0]);
+        {
+            using _q_method_type = void (MyModBus::*)(const Settings & );
+            if (_q_method_type _q_method = &MyModBus::createModBus; *reinterpret_cast<_q_method_type *>(_a[1]) == _q_method) {
+                *result = 0;
+                return;
+            }
         }
     }
 }
@@ -121,15 +156,22 @@ int MyModBus::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 2)
+        if (_id < 5)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 2;
+        _id -= 5;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 2)
+        if (_id < 5)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 2;
+        _id -= 5;
     }
     return _id;
+}
+
+// SIGNAL 0
+void MyModBus::createModBus(const Settings & _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 QT_WARNING_POP

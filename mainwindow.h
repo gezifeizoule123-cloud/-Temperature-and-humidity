@@ -24,6 +24,7 @@
 #include"sqlitework.h"
 #include"myserials.h"
 #include"myserialwork.h"
+#include"loginIDandPassword.h"
 QT_BEGIN_NAMESPACE
 //发送缓冲区
 extern QString strbuf;
@@ -69,7 +70,7 @@ private:
     //定时器1
     QTimer *timer;
 
-private slots:
+public slots:
     void on_debug_triggered();
 
     void on_data_triggered();
@@ -131,8 +132,15 @@ private slots:
     void on_ChecSerial_stateChanged(int arg1);
 
     void on_pushButtoSerial_clicked();
+    void RootSet(bool isroot);
+    void receiveLogin(const islogin &s);
 signals:
     void  sendThrsholdData(QString s);
+    void checkModbus();
+    void closeModBus();
+    void closeLogin();
+    void signalisLogin(const islogin &s);
+
 private:
     void createTableOne();
     void createTableTwo();

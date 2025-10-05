@@ -20,6 +20,7 @@ public slots:
 signals:
     void isOkInser(bool t);
     void clearFinished(bool success);  // 清除完成信号
+
 private:
 
 };

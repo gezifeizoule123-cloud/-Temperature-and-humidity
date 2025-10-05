@@ -119,6 +119,11 @@ void MainWindow::initMember()
     connect(m_serials,&MySerials::isclose,this,[this](){
         ui->ChecSerial->setCheckState(Qt::Unchecked);
     });
+    connect(this,&MainWindow::checkModbus,m_modbus,&MyModBus::creatModbus);
+
+    connect(this,&MainWindow::closeModBus,m_modbus,&MyModBus::stopModBus);
+    connect(this,&MainWindow::signalisLogin,m_database,&Sql::userIn);
+    connect(m_database,&Sql::signaluserIn,this,&MainWindow::RootSet);
 
     initNetworkThread();
 
@@ -185,6 +190,7 @@ void MainWindow::on_ModbusCheck_stateChanged(int arg1)
         ui->ChecSerial->setEnabled(true);
         ui->pushButtoSerial->setEnabled(true);
         ModbusOpen=false;
+        emit closeModBus();
         break;
 
     // case Qt::PartiallyChecked: // 值为 1
@@ -198,6 +204,7 @@ void MainWindow::on_ModbusCheck_stateChanged(int arg1)
     ui->ChecSerial->setEnabled(false);
     ui->pushButtoSerial->setEnabled(false);
     ModbusOpen=true;
+        emit checkModbus();
         break;
     }
 
@@ -215,7 +222,7 @@ void MainWindow::newConnection_Slot()
 
 void MainWindow::BackDataParsing(QMap<QString, float> numberData,QMap<QString,QString>strnumber)
 {
-       qDebug() << "收到givedisplay信号";
+      // qDebug() << "收到givedisplay信号";
     temp_data = numberData["temp"];
     humi_data = numberData["humi"];
     light_data = numberData["light"];
@@ -287,10 +294,10 @@ void MainWindow::onNetworkDataReceive(QString data)
 
         if(m_deb && m_deb->isVisible()) {
         m_deb->DisplayData(data);
-         qDebug() << "m_deb存在" ;
+        // qDebug() << "m_deb存在" ;
     } else {
 
-        qDebug() << "Received data:" << data;
+       // qDebug() << "Received data:" << data;
     }
 
 
@@ -298,7 +305,7 @@ void MainWindow::onNetworkDataReceive(QString data)
 
 void MainWindow::onErrorNetwork(QString error)
 {
-    qDebug()<<error<<"\n";
+   // qDebug()<<error<<"\n";
 }
 
 void MainWindow::createTableOne()
@@ -551,11 +558,18 @@ void MainWindow::on_auto_2_triggered()
 
         ui->auto_2->setIcon(QIcon(imagePath+"/img/auto.png"));
         tcpSocket->write("auto_mode");
+        if(m_serials){
+             m_serials->sendData("auto_mode");}
+
+
+
     }
     else{
         //手动
         ui->auto_2->setIcon(QIcon(imagePath+"/img/hand.png"));
         tcpSocket->write("hand_mode");
+        if(m_serials){
+            m_serials->sendData("hand_mode");}
     }
 }
 
@@ -755,5 +769,43 @@ void MainWindow::on_pushButtoSerial_clicked()
 
     m_serials->setAttribute(Qt::WA_DeleteOnClose);
 
+}
+
+void MainWindow::RootSet(bool isroot)
+{
+    qDebug()<<"test root";
+    if(isroot){
+        ui->groupBox_4->setEnabled(true);
+        ui->groupBox_5->setEnabled(true);
+        ui->groupBox_6->setEnabled(true);
+        ui->data->setEnabled(true);
+        ui->water->setEnabled(true);
+        ui->auto_2->setEnabled(true);
+        ui->ModbusCheck->setEnabled(true);
+        ui->pushButtonModBus->setEnabled(true);
+        ui->pushButtoSerial->setEnabled(true);
+        ui->led->setEnabled(true);
+         ui->debug->setEnabled(true);
+        emit closeLogin();
+    }else{
+        ui->groupBox_4->setEnabled(false);
+        ui->groupBox_5->setEnabled(false);
+        ui->groupBox_6->setEnabled(false);
+        ui->data->setEnabled(false);
+        ui->water->setEnabled(false);
+        ui->auto_2->setEnabled(false);
+        ui->ModbusCheck->setEnabled(false);
+        ui->pushButtonModBus->setEnabled(false);
+        ui->pushButtoSerial->setEnabled(false);
+        ui->led->setEnabled(false);
+        ui->debug->setEnabled(false);
+    emit closeLogin();
+    }
+
+}
+
+void MainWindow::receiveLogin(const islogin &s)
+{
+    emit  signalisLogin(s);
 }
 

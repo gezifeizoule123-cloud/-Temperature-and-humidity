@@ -157,6 +157,8 @@ E:/SerialQT/Humidity/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/Humidity_autogen/
   E:/QT/6.8.3/mingw_64/include/QtSerialBus/QModbusRtuSerialServer \
   E:/QT/6.8.3/mingw_64/include/QtSerialBus/QModbusRtuSerialSlave \
   E:/QT/6.8.3/mingw_64/include/QtSerialBus/QModbusServer \
+  E:/QT/6.8.3/mingw_64/include/QtSerialBus/QModbusTcpClient \
+  E:/QT/6.8.3/mingw_64/include/QtSerialBus/QModbusTcpServer \
   E:/QT/6.8.3/mingw_64/include/QtSerialBus/qmodbusclient.h \
   E:/QT/6.8.3/mingw_64/include/QtSerialBus/qmodbusdataunit.h \
   E:/QT/6.8.3/mingw_64/include/QtSerialBus/qmodbusdevice.h \
@@ -165,6 +167,8 @@ E:/SerialQT/Humidity/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/Humidity_autogen/
   E:/QT/6.8.3/mingw_64/include/QtSerialBus/qmodbusrtuserialclient.h \
   E:/QT/6.8.3/mingw_64/include/QtSerialBus/qmodbusrtuserialserver.h \
   E:/QT/6.8.3/mingw_64/include/QtSerialBus/qmodbusserver.h \
+  E:/QT/6.8.3/mingw_64/include/QtSerialBus/qmodbustcpclient.h \
+  E:/QT/6.8.3/mingw_64/include/QtSerialBus/qmodbustcpserver.h \
   E:/QT/6.8.3/mingw_64/include/QtSerialBus/qtserialbus-config.h \
   E:/QT/6.8.3/mingw_64/include/QtSerialBus/qtserialbusexports.h \
   E:/QT/6.8.3/mingw_64/include/QtSerialBus/qtserialbusglobal.h \
@@ -386,4 +390,5 @@ E:/SerialQT/Humidity/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/Humidity_autogen/
   E:/QT/Tools/mingw1310_64/x86_64-w64-mingw32/include/time.h \
   E:/QT/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
   E:/QT/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
+  E:/SerialQT/Humidity/ModbusSettings.h \
   E:/SerialQT/Humidity/mymodbuswork.h

@@ -44,6 +44,12 @@ static constexpr auto qt_meta_stringdata_ZN12MySerialWorkE = QtMocHelpers::strin
     "isclose",
     "DataHandleOk",
     "s",
+    "sendMainDisplay",
+    "QMap<QString,float>",
+    "numberData",
+    "QMap<QString,QString>",
+    "strnumber",
+    "writeOk",
     "startThread",
     "Settings",
     "stopThread",
@@ -61,33 +67,37 @@ Q_CONSTINIT static const uint qt_meta_data_ZN12MySerialWorkE[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-       7,   14, // methods
+       9,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       3,       // signalCount
+       5,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   56,    2, 0x06,    1 /* Public */,
-       3,    1,   57,    2, 0x06,    2 /* Public */,
-       5,    1,   60,    2, 0x06,    4 /* Public */,
+       1,    0,   68,    2, 0x06,    1 /* Public */,
+       3,    1,   69,    2, 0x06,    2 /* Public */,
+       5,    1,   72,    2, 0x06,    4 /* Public */,
+       7,    2,   75,    2, 0x06,    6 /* Public */,
+      12,    0,   80,    2, 0x06,    9 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       7,    1,   63,    2, 0x0a,    6 /* Public */,
-       9,    0,   66,    2, 0x0a,    8 /* Public */,
-      10,    1,   67,    2, 0x0a,    9 /* Public */,
-      12,    0,   70,    2, 0x0a,   11 /* Public */,
+      13,    1,   81,    2, 0x0a,   10 /* Public */,
+      15,    0,   84,    2, 0x0a,   12 /* Public */,
+      16,    1,   85,    2, 0x0a,   13 /* Public */,
+      18,    0,   88,    2, 0x0a,   15 /* Public */,
 
  // signals: parameters
     QMetaType::Void,
     QMetaType::Void, QMetaType::Int,    4,
     QMetaType::Void, QMetaType::QString,    6,
+    QMetaType::Void, 0x80000000 | 8, 0x80000000 | 10,    9,   11,
+    QMetaType::Void,
 
  // slots: parameters
-    QMetaType::Void, 0x80000000 | 8,    6,
+    QMetaType::Void, 0x80000000 | 14,    6,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QByteArray,   11,
+    QMetaType::Void, QMetaType::QByteArray,   17,
     QMetaType::Void,
 
        0        // eod
@@ -110,6 +120,12 @@ Q_CONSTINIT const QMetaObject MySerialWork::staticMetaObject = { {
         // method 'DataHandleOk'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<QString, std::false_type>,
+        // method 'sendMainDisplay'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QMap<QString,float>, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QMap<QString,QString>, std::false_type>,
+        // method 'writeOk'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'startThread'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<Settings, std::false_type>,
@@ -132,10 +148,12 @@ void MySerialWork::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
         case 0: _t->signalStart(); break;
         case 1: _t->signalStop((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
         case 2: _t->DataHandleOk((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 3: _t->startThread((*reinterpret_cast< std::add_pointer_t<Settings>>(_a[1]))); break;
-        case 4: _t->stopThread(); break;
-        case 5: _t->SendWrite((*reinterpret_cast< std::add_pointer_t<QByteArray>>(_a[1]))); break;
-        case 6: _t->readData(); break;
+        case 3: _t->sendMainDisplay((*reinterpret_cast< std::add_pointer_t<QMap<QString,float>>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QMap<QString,QString>>>(_a[2]))); break;
+        case 4: _t->writeOk(); break;
+        case 5: _t->startThread((*reinterpret_cast< std::add_pointer_t<Settings>>(_a[1]))); break;
+        case 6: _t->stopThread(); break;
+        case 7: _t->SendWrite((*reinterpret_cast< std::add_pointer_t<QByteArray>>(_a[1]))); break;
+        case 8: _t->readData(); break;
         default: ;
         }
     }
@@ -162,6 +180,20 @@ void MySerialWork::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
                 return;
             }
         }
+        {
+            using _q_method_type = void (MySerialWork::*)(QMap<QString,float> , QMap<QString,QString> );
+            if (_q_method_type _q_method = &MySerialWork::sendMainDisplay; *reinterpret_cast<_q_method_type *>(_a[1]) == _q_method) {
+                *result = 3;
+                return;
+            }
+        }
+        {
+            using _q_method_type = void (MySerialWork::*)();
+            if (_q_method_type _q_method = &MySerialWork::writeOk; *reinterpret_cast<_q_method_type *>(_a[1]) == _q_method) {
+                *result = 4;
+                return;
+            }
+        }
     }
 }
 
@@ -184,14 +216,14 @@ int MySerialWork::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 7)
+        if (_id < 9)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 7;
+        _id -= 9;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 7)
+        if (_id < 9)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 7;
+        _id -= 9;
     }
     return _id;
 }
@@ -214,5 +246,18 @@ void MySerialWork::DataHandleOk(QString _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 2, _a);
+}
+
+// SIGNAL 3
+void MySerialWork::sendMainDisplay(QMap<QString,float> _t1, QMap<QString,QString> _t2)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))) };
+    QMetaObject::activate(this, &staticMetaObject, 3, _a);
+}
+
+// SIGNAL 4
+void MySerialWork::writeOk()
+{
+    QMetaObject::activate(this, &staticMetaObject, 4, nullptr);
 }
 QT_WARNING_POP

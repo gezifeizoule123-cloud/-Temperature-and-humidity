@@ -155,8 +155,12 @@ void MySerials::initSerialThread()
     connect(m_serialsWork,&MySerialWork::signalStart,this,&MySerials::isStart);
     connect(m_serialsWork,&MySerialWork::DataHandleOk,this,&MySerials::receiveData);
     connect(m_serialsWork,&MySerialWork::sendMainDisplay,this,[this](QMap<QString, float> numberData,QMap<QString,QString>strnumber){
-         qDebug() << "收到sendMainDisplay信号";
+         //qDebug() << "收到sendMainDisplay信号";
         emit giveDBandDisplay( numberData,strnumber);
+    });
+    connect(m_serialsWork,&MySerialWork::writeOk,this,[this]{
+        ui->recvTextEdit->appendPlainText(ui->sendTextEdit->toPlainText());
+        ui->sendTextEdit->clear();
     });
     m_serialThread->start();
 }

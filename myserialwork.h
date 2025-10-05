@@ -35,6 +35,7 @@ signals:
     void signalStop(int isclose);//1表示关闭成功
     void DataHandleOk(QString s);
     void sendMainDisplay(QMap<QString, float> numberData,QMap<QString,QString>strnumber);
+    void writeOk();
 };
 
 #endif // MYSERIALWORK_H

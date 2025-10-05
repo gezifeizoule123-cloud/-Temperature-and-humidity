@@ -6,7 +6,7 @@ SqliteWork::SqliteWork(QObject *parent)
     : QObject{parent}
 {
 
-     qDebug() << "sqliteWork构造函数在线程:"<< QThread::currentThread();
+    // qDebug() << "sqliteWork构造函数在线程:"<< QThread::currentThread();
 }
 
 void SqliteWork::receiveInsert(float Stemp, float Shumi, float Slight, float Ssoil, float Smq2, float Srain)
@@ -23,7 +23,7 @@ void SqliteWork::receiveInsert(float Stemp, float Shumi, float Slight, float Sso
     query.addBindValue(Srain);
     if(!query.exec())
     {
-        qDebug()<<"插入失败";
+       // qDebug()<<"插入失败";
     }
     emit  isOkInser(true);
 
@@ -31,14 +31,14 @@ void SqliteWork::receiveInsert(float Stemp, float Shumi, float Slight, float Sso
 
 void SqliteWork::clearData()
 {
-     qDebug() << "clearData在线程:" << QThread::currentThread();
+     //qDebug() << "clearData在线程:" << QThread::currentThread();
     QSqlQuery query(QSqlDatabase::database("connectionB"));
     query.prepare("DELETE FROM qtdata;");
     if(query.exec()) {
-        qDebug() << "清除成功";
+       // qDebug() << "清除成功";
         emit clearFinished(true);
     } else {
-        qDebug() << "清除失败:";
+       // qDebug() << "清除失败:";
         emit clearFinished(false);
     }
 }
@@ -51,9 +51,9 @@ void SqliteWork::initConnect()
         m_db.setDatabaseName("Stock.db");
 
         if (!m_db.open()) {
-            qDebug() << "工作线程数据库打开失败:";
+          ///  qDebug() << "工作线程数据库打开失败:";
         } else {
-            qDebug() << "工作线程数据库打开成功 - 线程:" << QThread::currentThread();
+          //  qDebug() << "工作线程数据库打开成功 - 线程:" << QThread::currentThread();
         }
     }
 }
