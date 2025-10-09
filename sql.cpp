@@ -260,3 +260,11 @@ void Sql::onClearFinished(bool success)
         //qDebug() << "数据库清除失败";
     }
 }
+
+
+
+void Sql::on_pushButtonExls_clicked()
+{
+        //-------------此处标记-----------------
+}
+

@@ -312,6 +312,8 @@ public:
         spinBox->setObjectName("spinBox");
         spinBox->setGeometry(QRect(100, 410, 81, 28));
         spinBox->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 170, 255);"));
+        spinBox->setMaximum(999999);
+        spinBox->setValue(1000);
         label_2 = new QLabel(Deb);
         label_2->setObjectName("label_2");
         label_2->setGeometry(QRect(190, 408, 69, 31));

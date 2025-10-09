@@ -12,7 +12,10 @@ Deb::Deb(QWidget *parent)
     ui->clear_bt->setIcon(QIcon(imagePath+"/img/clear_b.png"));
     ui->pushButton_2->setIcon(QIcon(imagePath+"/img/clearS.png"));
     ui->send_bt->setIcon(QIcon(imagePath+"/img/send.png"));
-    ui->rec_edi->setEnabled(false);
+    ui->rec_edi->setEnabled(true);
+    connect(&m_timer,&QTimer::timeout,[this](){
+        emit modbusRequest();
+    });
 }
 
 Deb::~Deb()
@@ -22,7 +25,9 @@ Deb::~Deb()
 
 void Deb::DisplayData(QString data)
 {
+
     ui->rec_edi->appendPlainText(data);
+
 }
 
 
@@ -58,6 +63,17 @@ void Deb::on_send_bt_clicked()
 
         // 清空发送框
         ui->send_edi->clear();
+    }
+}
+
+
+void Deb::on_checkBox_stateChanged(int arg1)
+{
+    if(arg1==2){
+        m_timer.start(ui->spinBox->text().toUInt());
+    }
+    if(arg1==0){
+        m_timer.stop();
     }
 }
 

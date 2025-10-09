@@ -28,17 +28,25 @@ public:
 public slots:
     void creatModbus();
     void stopModBus();
+        void doRequest();
 private slots:
     void on_MasterOrSlave_currentIndexChanged(int index);
 
     void on_mType_currentIndexChanged(int index);
+    void ReceiveMessage(const QString &address);
+
+
+
 signals:
     void createModBus(const Settings &s);
+    void signalStop();
+    void signalReceive(const QString &address);
+    void signalDoRequest(const Settings &s);
 
 private:
     Ui::MyModBus *ui;
-    QThread *m_ModBusThread;
-    MyModBusWork *m_ModBusWork;
+    QThread *m_ModBusThread=nullptr;
+    MyModBusWork *m_ModBusWork=nullptr;
 };
 
 #endif // MYMODBUS_H

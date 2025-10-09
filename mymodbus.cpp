@@ -1,13 +1,14 @@
 #include "mymodbus.h"
 #include "ui_mymodbus.h"
 #include <qthread.h>
-
+#include<QMessageBox>
 MyModBus::MyModBus(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MyModBus)
 {
     ui->setupUi(this);
     initUi();
+    initModBusThread();
 }
 
 MyModBus::~MyModBus()
@@ -82,26 +83,51 @@ void MyModBus::initModBusThread()
     m_ModBusWork->moveToThread(m_ModBusThread);
     //此处标记要写的内容-----------------------------------------
     connect(this,&MyModBus::createModBus,m_ModBusWork,&MyModBusWork::createConnect);
+    connect(this,&MyModBus::signalStop,m_ModBusWork,&MyModBusWork::doStop);
+    connect(m_ModBusWork,&MyModBusWork::signalStop,this,[=](bool isStop){
+        if(isStop){
+            qDebug()<<"Ok";
+            QMessageBox::information(0,"tip","已经断开连接");
+            if(m_ModBusThread&&m_ModBusThread->isRunning()){
+                m_ModBusThread->quit();
+                m_ModBusThread->wait();
+                delete m_ModBusThread;
+                delete m_ModBusWork;
+                m_ModBusThread=nullptr;
+                m_ModBusWork=nullptr;
 
+            }
+        }
+
+    });
+    connect(m_ModBusWork,&MyModBusWork::signalreceive,this,&MyModBus::ReceiveMessage);
+    connect(this,&MyModBus::signalDoRequest,m_ModBusWork,&MyModBusWork::doRequest);
     m_ModBusThread->start();
 
 }
 
 void MyModBus::creatModbus()
 {
+    qDebug()<<"Mymodbus::creatModbebus()";
+    if(!m_ModBusThread||!m_ModBusWork){
+        initModBusThread();
+    }
     Settings s;
     if(ui->MasterOrSlave->currentText()=="Master"){
         if(ui->mType->currentText()=="TCP"){
             s.isTCP=true;
         }else{
             s.isTCP=false;
+
         }
         s.isMaster=true;
     }else{
         if(ui->mType->currentText()=="TCP"){
             s.isTCP=true;
+
         }else{
             s.isTCP=false;
+
         }
      s.isMaster=false;
     }
@@ -112,18 +138,22 @@ void MyModBus::creatModbus()
     if(!ui->m_Port->text().isEmpty()){
         s.port=ui->m_Port->text().toUInt();
     }
-    s.PortName = ui->portName->currentText();
-    s.BaudRate = ui->baudRate->currentData().value<QSerialPort::BaudRate>();
-    s.DataBits = ui->dataBits->currentData().value<QSerialPort::DataBits>();
-    s.StopBits = ui->stopBits->currentData().value<QSerialPort::StopBits>();
-    s.parity = ui->parity->currentData().value<QSerialPort::Parity>();
-    s.FlowControl = ui->flowControl->currentData().value<QSerialPort::FlowControl>();
-
+    s.SlaveAddress=ui->mAddr->text().toInt();
+    s.PortName=ui->portName->currentText();
+    s.BaudRate=(QSerialPort::BaudRate)ui->baudRate->currentData().toUInt();
+    s.DataBits=(QSerialPort::DataBits)ui->dataBits->currentData().toUInt();
+    s.StopBits=(QSerialPort::StopBits)ui->stopBits->currentData().toUInt();
+    s.FlowControl=(QSerialPort::FlowControl)ui->flowControl->currentData().toUInt();
+    s.parity=(QSerialPort::Parity)ui->parity->currentData().toInt();
+    s.RegisterType=(QModbusDataUnit::RegisterType)ui->sTable->currentData().toUInt();
     emit createModBus(s);
 }
 
 void MyModBus::stopModBus()
 {
+//-------------------------------
+    emit signalStop();
+
 
 }
 
@@ -143,5 +173,18 @@ void MyModBus::on_mType_currentIndexChanged(int index)
     ui->groupBox->setEnabled(true);
     ui->m_Port->setEnabled(true);
     }
+}
+
+void MyModBus::ReceiveMessage(const QString &address)
+{
+    emit signalReceive(address);
+
+}
+
+void MyModBus::doRequest()
+{       Settings s;
+    s.SlaveAddress=ui->mAddr->text().toInt();
+     s.RegisterType=(QModbusDataUnit::RegisterType)ui->sTable->currentData().toUInt();
+    emit signalDoRequest(s);
 }
 

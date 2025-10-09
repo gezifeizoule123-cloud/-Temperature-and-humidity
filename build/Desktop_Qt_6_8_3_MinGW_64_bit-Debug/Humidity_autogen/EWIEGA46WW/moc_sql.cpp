@@ -62,7 +62,8 @@ static constexpr auto qt_meta_stringdata_ZN3SqlE = QtMocHelpers::stringData(
     "on_select_val_bt_clicked",
     "on_clear_bt_clicked",
     "userIn",
-    "islogin"
+    "islogin",
+    "on_pushButtonExls_clicked"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -74,7 +75,7 @@ Q_CONSTINIT static const uint qt_meta_data_ZN3SqlE[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-      15,   14, // methods
+      16,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -82,23 +83,24 @@ Q_CONSTINIT static const uint qt_meta_data_ZN3SqlE[] = {
        4,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    6,  104,    2, 0x06,    1 /* Public */,
-       9,    1,  117,    2, 0x06,    8 /* Public */,
-      11,    0,  120,    2, 0x06,   10 /* Public */,
-      12,    1,  121,    2, 0x06,   11 /* Public */,
+       1,    6,  110,    2, 0x06,    1 /* Public */,
+       9,    1,  123,    2, 0x06,    8 /* Public */,
+      11,    0,  126,    2, 0x06,   10 /* Public */,
+      12,    1,  127,    2, 0x06,   11 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-      13,    0,  124,    2, 0x0a,   13 /* Public */,
-      14,    1,  125,    2, 0x0a,   14 /* Public */,
-      16,    0,  128,    2, 0x0a,   16 /* Public */,
-      17,    0,  129,    2, 0x0a,   17 /* Public */,
-      18,    0,  130,    2, 0x0a,   18 /* Public */,
-      19,    0,  131,    2, 0x0a,   19 /* Public */,
-      20,    0,  132,    2, 0x0a,   20 /* Public */,
-      21,    0,  133,    2, 0x0a,   21 /* Public */,
-      22,    0,  134,    2, 0x0a,   22 /* Public */,
-      23,    0,  135,    2, 0x0a,   23 /* Public */,
-      24,    1,  136,    2, 0x0a,   24 /* Public */,
+      13,    0,  130,    2, 0x0a,   13 /* Public */,
+      14,    1,  131,    2, 0x0a,   14 /* Public */,
+      16,    0,  134,    2, 0x0a,   16 /* Public */,
+      17,    0,  135,    2, 0x0a,   17 /* Public */,
+      18,    0,  136,    2, 0x0a,   18 /* Public */,
+      19,    0,  137,    2, 0x0a,   19 /* Public */,
+      20,    0,  138,    2, 0x0a,   20 /* Public */,
+      21,    0,  139,    2, 0x0a,   21 /* Public */,
+      22,    0,  140,    2, 0x0a,   22 /* Public */,
+      23,    0,  141,    2, 0x0a,   23 /* Public */,
+      24,    1,  142,    2, 0x0a,   24 /* Public */,
+      26,    0,  145,    2, 0x08,   26 /* Private */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Float, QMetaType::Float, QMetaType::Float, QMetaType::Float, QMetaType::Float, QMetaType::Float,    3,    4,    5,    6,    7,    8,
@@ -118,6 +120,7 @@ Q_CONSTINIT static const uint qt_meta_data_ZN3SqlE[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void, 0x80000000 | 25,   10,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -170,7 +173,9 @@ Q_CONSTINIT const QMetaObject Sql::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'userIn'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<const islogin &, std::false_type>
+        QtPrivate::TypeAndForceComplete<const islogin &, std::false_type>,
+        // method 'on_pushButtonExls_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
 } };
@@ -195,6 +200,7 @@ void Sql::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **
         case 12: _t->on_select_val_bt_clicked(); break;
         case 13: _t->on_clear_bt_clicked(); break;
         case 14: _t->userIn((*reinterpret_cast< std::add_pointer_t<islogin>>(_a[1]))); break;
+        case 15: _t->on_pushButtonExls_clicked(); break;
         default: ;
         }
     }
@@ -250,14 +256,14 @@ int Sql::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 15)
+        if (_id < 16)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 15;
+        _id -= 16;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 15)
+        if (_id < 16)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 15;
+        _id -= 16;
     }
     return _id;
 }

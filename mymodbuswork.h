@@ -19,12 +19,18 @@ public:
     explicit MyModBusWork(QObject *parent = nullptr);
 public slots:
     void createConnect(const Settings &s);
-
+    void  doStop();
+    void doRequest(const Settings &s);
 private:
-    QModbusRtuSerialMaster* m_Master;
-    QModbusRtuSerialSlave *m_Slave;
+
+    QModbusClient* m_Master;
+    QModbusServer *m_Slave;
+
+    QString anylisyData(int address, quint16 v, QModbusDataUnit::RegisterType RegisterType);
 
 signals:
+    void  signalStop(bool isStop);
+    void signalreceive(const QString &address);
 };
 
 #endif // MYMODBUSWORK_H

@@ -2,6 +2,7 @@
 #define DEB_H
 
 #include <QWidget>
+#include <qtimer.h>
 
 namespace Ui {
 class Deb;
@@ -24,10 +25,15 @@ private slots:
     void on_pushButton_2_clicked();
 
     void on_send_bt_clicked();
+    void on_checkBox_stateChanged(int arg1);
+
 signals:
      void sendDataRequested(const QString &data);
+    void modbusRequest();
 private:
     Ui::Deb *ui;
+    QTimer m_timer;
+
 };
 
 #endif // DEB_H

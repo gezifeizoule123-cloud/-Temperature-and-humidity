@@ -33,6 +33,7 @@ signals:
     void isRoot(bool s);
     void clearData();
     void signaluserIn(bool isRoot);
+
 public slots:
     void on_exit_bt_clicked();
     void onClearFinished(bool success);
@@ -53,6 +54,11 @@ public slots:
     void on_clear_bt_clicked();
 
  void userIn(const islogin &s);
+private slots:
+
+
+    void on_pushButtonExls_clicked();
+
 private:
     Ui::Sql *ui;
     QSqlQueryModel *m_tableMod;

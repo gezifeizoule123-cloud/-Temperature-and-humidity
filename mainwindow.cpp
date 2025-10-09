@@ -124,6 +124,12 @@ void MainWindow::initMember()
     connect(this,&MainWindow::closeModBus,m_modbus,&MyModBus::stopModBus);
     connect(this,&MainWindow::signalisLogin,m_database,&Sql::userIn);
     connect(m_database,&Sql::signaluserIn,this,&MainWindow::RootSet);
+    connect(m_modbus,&MyModBus::signalReceive,this,[this](const QString &address){
+        if(m_deb&&m_deb->isVisible()){
+
+            m_deb->DisplayData(address);
+        }
+    });
 
     initNetworkThread();
 
@@ -154,6 +160,7 @@ void MainWindow::on_debug_triggered()
     m_deb=new Deb();
     m_deb->show();
     connect(m_deb, &Deb::sendDataRequested, this, &MainWindow::onDebSendData);
+    connect(m_deb,&Deb::modbusRequest,m_modbus,&MyModBus::doRequest);
     m_deb->setAttribute(Qt::WA_DeleteOnClose);
 
 }

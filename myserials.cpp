@@ -96,7 +96,7 @@ void MySerials::on_openButton_clicked()
 void MySerials::on_checkBox_stateChanged(int arg1)
 {
     if(arg1==Qt::Checked){
-        m_timer.start();
+        m_timer.start(ui->timelineEdit->text().toUInt());
     }else if(arg1==Qt::Unchecked){
         m_timer.stop();
     }

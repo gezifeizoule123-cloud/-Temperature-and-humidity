@@ -1,5 +1,6 @@
 #ifndef MODBUSSETTINGS_H
 #define MODBUSSETTINGS_H
+#include <qmodbusdataunit.h>
 #include <qobject.h>
 #include<QSerialPort>
 struct Settings
@@ -10,6 +11,8 @@ struct Settings
     QSerialPort::StopBits StopBits;
     QSerialPort::FlowControl FlowControl ;
     QSerialPort::BaudRate  BaudRate ;
+    QModbusDataUnit::RegisterType RegisterType;
+    int  SlaveAddress;
     QString address;
     int port;
     bool isTCP;

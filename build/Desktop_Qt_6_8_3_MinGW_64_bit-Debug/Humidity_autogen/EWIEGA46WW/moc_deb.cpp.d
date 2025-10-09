@@ -15,6 +15,7 @@ E:/SerialQT/Humidity/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/Humidity_autogen/
   E:/QT/6.8.3/mingw_64/include/QtCore/qatomic.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qatomic_cxx11.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qbasicatomic.h \
+  E:/QT/6.8.3/mingw_64/include/QtCore/qbasictimer.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qbindingstorage.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qbytearray.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qbytearrayalgorithms.h \
@@ -105,6 +106,7 @@ E:/SerialQT/Humidity/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/Humidity_autogen/
   E:/QT/6.8.3/mingw_64/include/QtCore/qtdeprecationmarkers.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qtenvironmentvariables.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qtextstream.h \
+  E:/QT/6.8.3/mingw_64/include/QtCore/qtimer.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qtmetamacros.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qtnoop.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/qtpreprocessorsupport.h \
