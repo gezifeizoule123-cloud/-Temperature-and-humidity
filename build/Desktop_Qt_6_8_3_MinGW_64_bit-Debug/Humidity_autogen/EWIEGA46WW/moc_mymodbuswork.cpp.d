@@ -1,5 +1,6 @@
 E:/SerialQT/Humidity/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/Humidity_autogen/EWIEGA46WW/moc_mymodbuswork.cpp: E:/SerialQT/Humidity/mymodbuswork.h \
   E:/SerialQT/Humidity/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/Humidity_autogen/moc_predefs.h \
+  E:/QT/6.8.3/mingw_64/include/QtCore/QMap \
   E:/QT/6.8.3/mingw_64/include/QtCore/QObject \
   E:/QT/6.8.3/mingw_64/include/QtCore/q20functional.h \
   E:/QT/6.8.3/mingw_64/include/QtCore/q20memory.h \

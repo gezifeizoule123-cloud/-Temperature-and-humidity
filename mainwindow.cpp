@@ -130,6 +130,8 @@ void MainWindow::initMember()
             m_deb->DisplayData(address);
         }
     });
+    connect(m_modbus,&MyModBus:: giveDBandDisplay,this,&MainWindow::BackDataParsing);
+    connect(this,&MainWindow::signalSendModbus,m_modbus,&MyModBus::SendModbus);
 
     initNetworkThread();
 
@@ -161,6 +163,7 @@ void MainWindow::on_debug_triggered()
     m_deb->show();
     connect(m_deb, &Deb::sendDataRequested, this, &MainWindow::onDebSendData);
     connect(m_deb,&Deb::modbusRequest,m_modbus,&MyModBus::doRequest);
+    connect(m_deb,&Deb::modbusReceiveMasterData,m_modbus,&MyModBus::SendModbus);
     m_deb->setAttribute(Qt::WA_DeleteOnClose);
 
 }
@@ -242,7 +245,6 @@ void MainWindow::BackDataParsing(QMap<QString, float> numberData,QMap<QString,QS
     QString st4 = strnumber["soil"];
     QString st5 = strnumber["mq2"];
     QString st6 = strnumber["rain"];
-
     ToUpdata_Lab(str, st2, st3, st4, st5, st6);
     m_database->UpdataToDataBase(temp_data,humi_data,light_data,soil_data,mq2_data,rain_data);
 }
@@ -526,17 +528,19 @@ void MainWindow::on_led_triggered()
 {
     static bool ledSw=false;
     ledSw=!ledSw;
-    if (!tcpSocket || tcpSocket->state() != QAbstractSocket::ConnectedState) {
-        ledSw = !ledSw;
-        return;
-    }
+    // if (!tcpSocket || tcpSocket->state() != QAbstractSocket::ConnectedState) {
+    //     ledSw = !ledSw;
+    //     return;
+    // }
     if(ledSw){
         ui->led->setIcon(QIcon(imagePath+"/img/led_on.png"));
         tcpSocket->write("led_on");
+        m_modbus->signalBtnSend("led_on");
     }
     else{
         ui->led->setIcon(QIcon(imagePath+"/img/led_off.png"));
         tcpSocket->write("led_off");
+        m_modbus->signalBtnSend("led_off");
     }
 
 }
@@ -548,10 +552,12 @@ void MainWindow::on_water_triggered()
     if(relaySw){
         ui->water->setIcon(QIcon(imagePath+"/img/relay_on.png"));
         tcpSocket->write("relay_on");
+         m_modbus->signalBtnSend("relay_on");
     }
     else{
         ui->water->setIcon(QIcon(imagePath+"/img/relay_off.png"));
         tcpSocket->write("relay_off");
+          m_modbus->signalBtnSend("relay_off");
     }
 
 }
@@ -567,6 +573,7 @@ void MainWindow::on_auto_2_triggered()
         tcpSocket->write("auto_mode");
         if(m_serials){
              m_serials->sendData("auto_mode");}
+            m_modbus->signalBtnSend("auto_mode");
 
 
 
@@ -577,6 +584,7 @@ void MainWindow::on_auto_2_triggered()
         tcpSocket->write("hand_mode");
         if(m_serials){
             m_serials->sendData("hand_mode");}
+        m_modbus->signalBtnSend("hand_mode");
     }
 }
 
@@ -695,7 +703,9 @@ void MainWindow::on_set_yu_bt_clicked()
                    Entemp     + " " + "temp:"+ ui->temp_yu_la->text()+";"+
                    Enlight    + " " + "light:"+ui->light_yu_la->text();
     sendThrsholdData(sendThrshold.toUtf8());
-    connect(this,&MainWindow::sendThrsholdData,m_serials,&MySerials::sendCtr);
+    if(m_serials){
+        connect(this,&MainWindow::sendThrsholdData,m_serials,&MySerials::sendCtr);}
+
     tcpSocket->write(sendThrshold.toUtf8());
 }
 
@@ -732,6 +742,9 @@ void MainWindow::onDebSendData(const QString &data)
         tcpSocket->write(data.toUtf8());
     }else{
         ui->statusbar->showMessage("未连接,发送不了");
+    }
+    if(ui->ModbusCheck->isChecked()){
+        emit signalSendModbus(data);
     }
 }
 

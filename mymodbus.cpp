@@ -102,6 +102,14 @@ void MyModBus::initModBusThread()
     });
     connect(m_ModBusWork,&MyModBusWork::signalreceive,this,&MyModBus::ReceiveMessage);
     connect(this,&MyModBus::signalDoRequest,m_ModBusWork,&MyModBusWork::doRequest);
+    connect(this,&MyModBus::signalSlaveToDatabase,m_ModBusWork,&MyModBusWork::SlaveToDatabase);
+    connect(m_ModBusWork,&MyModBusWork::sendMainDisplay,[this](QMap<QString, float> numberData,QMap<QString,QString>strnumber){
+    giveDBandDisplay( numberData,strnumber);
+    });
+    connect(this,&MyModBus::SendModBusSlave,m_ModBusWork,&MyModBusWork::SendModbusSlave);
+
+    connect(this,&MyModBus::changeSlaveData,m_ModBusWork,&MyModBusWork::changeModBusSlave);
+    connect(this,&MyModBus::signalBtnSend,this,&MyModBus::SendModbus);
     m_ModBusThread->start();
 
 }
@@ -168,16 +176,35 @@ void MyModBus::on_mType_currentIndexChanged(int index)
 {
     if(ui->mType->currentIndex()!=0){
         ui->groupBox->setEnabled(false);
-        ui->m_Port->setEnabled(false);
+        ui->m_Port->setEnabled(true);
     }else{
     ui->groupBox->setEnabled(true);
-    ui->m_Port->setEnabled(true);
+    ui->m_Port->setEnabled(false);
     }
 }
 
-void MyModBus::ReceiveMessage(const QString &address)
+void MyModBus::ReceiveMessage(const QString &address, QModbusDataUnit::RegisterType RegisterType)
 {
-    emit signalReceive(address);
+
+   /* if(RegisterType==QModbusDataUnit::Coils){
+
+    }else */if(RegisterType==QModbusDataUnit::HoldingRegisters){
+        if(address.contains("}")){
+           m_data="Params{"+m_data+address;
+         qDebug() << "完整数据:" << m_data;
+            emit signalReceive(m_data);
+           emit signalSlaveToDatabase(m_data);
+           m_data.clear();
+        }
+        else if(address!="暂无数据"){
+            m_data+=address;
+             qDebug() << "拼接的数据:" << m_data;
+        }
+   }else{
+       emit signalReceive(address);
+   }
+
+
 
 }
 
@@ -186,5 +213,22 @@ void MyModBus::doRequest()
     s.SlaveAddress=ui->mAddr->text().toInt();
      s.RegisterType=(QModbusDataUnit::RegisterType)ui->sTable->currentData().toUInt();
     emit signalDoRequest(s);
+}
+
+void MyModBus::SendModbus(const QString &data)
+{
+    Settings s;
+    s.RegisterType=(QModbusDataUnit::RegisterType)ui->sTable->currentData().toUInt();
+    if(ui->MasterOrSlave->currentText()=="Master"){
+        qDebug()<<"发送按钮触发";
+        emit SendModBusSlave(data,ui->mAddr->text().toUInt(),s);
+
+    }else{
+        Settings s;
+        s.RegisterType=(QModbusDataUnit::RegisterType)ui->sTable->currentData().toUInt();
+        emit changeSlaveData(data,s);
+
+    }
+
 }
 

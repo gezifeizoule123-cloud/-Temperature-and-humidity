@@ -61,16 +61,18 @@ void MyModBusWork::createConnect(const Settings &s)
     }else{
         if(s.isTCP){
             m_Slave=new QModbusTcpServer;
+            m_Slave->setConnectionParameter(QModbusDevice::NetworkPortParameter,s.port);
+            m_Slave->setConnectionParameter(QModbusDevice::NetworkAddressParameter,s.address);
+
+
+        }else{
+     m_Slave=new QModbusRtuSerialSlave;
             m_Slave->setConnectionParameter(QModbusDevice::SerialPortNameParameter,s.PortName);
             m_Slave->setConnectionParameter(QModbusDevice::SerialParityParameter,s.parity);
             m_Slave->setConnectionParameter(QModbusDevice::SerialBaudRateParameter,s.BaudRate);
             m_Slave->setConnectionParameter(QModbusDevice::SerialDataBitsParameter,s.DataBits);
             m_Slave->setConnectionParameter(QModbusDevice::SerialStopBitsParameter,s.StopBits);
 
-        }else{
-     m_Slave=new QModbusRtuSerialSlave;
-            m_Slave->setConnectionParameter(QModbusDevice::NetworkPortParameter,s.port);
-            m_Slave->setConnectionParameter(QModbusDevice::NetworkAddressParameter,s.address);
         }
          m_Slave->setServerAddress(s.SlaveAddress);
             //-------------------------此处判断并且连接
@@ -99,7 +101,7 @@ void MyModBusWork::createConnect(const Settings &s)
                         //获取从站某张表里面某个位置的数据
                         m_Slave->data(table,address+i,&v );
                         QString data=anylisyData(address+i,v,s.RegisterType);
-                        emit signalreceive(data);
+                        emit signalreceive(data,s.RegisterType);
 
                     }
 
@@ -163,17 +165,175 @@ void MyModBusWork::doRequest(const Settings &s)
              for(int i=0;i<unit.valueCount();i++){
                  quint16 v=unit.value(i);
                  QString data=anylisyData(unit.startAddress()+i,v,s.RegisterType);
-                 emit signalreceive(data);
+                 emit signalreceive(data,s.RegisterType);
 
              }
 
          }else {
              qDebug() << "Modbus error:" << reply->errorString();
-             emit signalreceive("Error");
+             emit signalreceive("Error",s.RegisterType);
          }
           reply->deleteLater();
      });
 
+
+}
+
+void MyModBusWork::SlaveToDatabase(QString data)
+{
+
+    if(!data.startsWith("Params")) {
+        return ;  // 如果不是传感器数据，直接返回
+    }
+    numberData.clear();
+    strnumber.clear();
+    QString str = data.mid(data.indexOf("temp:") + 5);
+    str = str.left(str.indexOf(";"));  // 截取到第一个分号
+    numberData["temp"] = str.toFloat();
+    strnumber["temp"]=str;
+
+    // 表一数据 - 湿度
+    QString st2 = data.mid(data.indexOf("humi:") + 5);
+    st2 = st2.left(st2.indexOf(";"));
+    numberData["humi"] = st2.toFloat();
+    strnumber["humi"]=st2;
+
+    // 表一数据 - 光照
+    QString st3 = data.mid(data.indexOf("light:") + 6);
+    st3 = st3.left(st3.indexOf(";"));
+    numberData["light"] = st3.toFloat();
+    strnumber["light"]=st3;
+
+    // 表二数据 - 土壤湿度
+    QString st4 = data.mid(data.indexOf("soil:") + 5);
+    st4 = st4.left(st4.indexOf(";"));
+    numberData["soil"] = st4.toFloat();
+    strnumber["soil"]=st4;
+
+    // 表二数据 - 有害气体
+    QString st5 = data.mid(data.indexOf("mq2:") + 4);
+    st5 = st5.left(st5.indexOf(";"));
+    numberData["mq2"] = st5.toFloat();
+    strnumber["mq2"]=st5;
+
+    // 表二数据 - 雨滴
+    QString st6 = data.mid(data.indexOf("rain:") + 5);
+    st6 = st6.left(st6.indexOf("}"));
+    numberData["rain"] = st6.toFloat();
+    strnumber["rain"]=st6;
+    emit sendMainDisplay(numberData,strnumber);
+}
+
+void MyModBusWork::SendModbusSlave(const QString &data,int id,Settings s)
+{
+    if(s.RegisterType==QModbusDataUnit::HoldingRegisters){
+    if(!data.startsWith("Params")) {
+        return ;  // 如果不是传感器数据，直接返回
+    }
+    //QMap<QString,QPair<QString,QString>>Data;
+    QVector<quint16>Data;
+    QStringList dataName={"temp", "humi", "light", "soil", "mq2", "rain"};
+    for(const auto &name:dataName){
+        QString integerPart = data.mid(data.indexOf(name + ":") + name.length() + 1);
+        integerPart = integerPart.left(integerPart.indexOf("."));
+
+        int dotPos = data.indexOf(".", data.indexOf(name + ":"));
+        QString decimalPart = data.mid(dotPos + 1);
+        decimalPart = decimalPart.left(decimalPart.indexOf(name == "rain" ? "}" : ";"));
+        quint16 intp=integerPart.toUInt();
+        quint16 decp=decimalPart.toUInt();
+        Data.push_back(intp);
+        Data.push_back(decp);
+    }
+    if(m_Master==nullptr){
+        return;
+    }
+    QModbusDataUnit mdu(QModbusDataUnit::HoldingRegisters,0,Data);
+    m_Master->sendWriteRequest(mdu,id);}
+    if(s.RegisterType==QModbusDataUnit::Coils){
+        //hand_mode
+        qDebug()<<"发送进入了";
+        int onOrOff=0;
+        int pos=0;
+        if(data=="hand_mode"){
+            onOrOff=0;
+            pos=0;
+        }else if(data=="auto_mode"){
+            onOrOff=1;
+            pos=0;
+        }else if(data=="relay_off"){
+            onOrOff=0;
+            pos=1;
+        }else if(data=="relay_on"){
+            onOrOff=1;
+            pos=1;
+        }else if(data=="led_off"){
+            onOrOff=0;
+            pos=2;
+        }else if(data=="led_on"){
+            onOrOff=1;
+            pos=2;
+        }
+        QModbusDataUnit mdu(QModbusDataUnit::Coils,pos,1);
+        mdu.setValue(0,onOrOff);
+        m_Master->sendWriteRequest(mdu,id);
+    }
+}
+
+void MyModBusWork::changeModBusSlave(const QString &data, Settings s)
+{
+    if(QModbusDataUnit::HoldingRegisters==s.RegisterType){
+    if(m_Slave==nullptr){
+        return;
+    }
+
+    if(!data.startsWith("Params")) {
+        return ;  // 如果不是传感器数据，直接返回
+    }
+    //QMap<QString,QPair<QString,QString>>Data;
+    QVector<quint16>Data;
+    QStringList dataName={"temp", "humi", "light", "soil", "mq2", "rain"};
+     int i=0;
+    for(const auto &name:dataName){
+
+        QString integerPart = data.mid(data.indexOf(name + ":") + name.length() + 1);
+        integerPart = integerPart.left(integerPart.indexOf("."));
+
+        int dotPos = data.indexOf(".", data.indexOf(name + ":"));
+        QString decimalPart = data.mid(dotPos + 1);
+        decimalPart = decimalPart.left(decimalPart.indexOf(name == "rain" ? "}" : ";"));
+        quint16 intp=integerPart.toUInt();
+        quint16 decp=decimalPart.toUInt();
+
+        m_Slave->setData(s.RegisterType,i,intp);
+        i++;
+         m_Slave->setData(s.RegisterType,i,decp);
+        i++;
+    }}
+    if(s.RegisterType==QModbusDataUnit::Coils){
+        int onOrOff=0;
+        int pos=0;
+        if(data=="hand_mode"){
+            onOrOff=0;
+            pos=0;
+        }else if(data=="auto_mode"){
+            onOrOff=1;
+            pos=0;
+        }else if(data=="relay_off"){
+            onOrOff=0;
+            pos=1;
+        }else if(data=="relay_on"){
+            onOrOff=1;
+            pos=1;
+        }else if(data=="led_off"){
+            onOrOff=0;
+            pos=2;
+        }else if(data=="led_on"){
+            onOrOff=1;
+            pos=2;
+        }
+        m_Slave->setData(s.RegisterType,pos,onOrOff);
+    }
 
 }
 
@@ -232,7 +392,7 @@ QString MyModBusWork::anylisyData(int  address, quint16 v,QModbusDataUnit::Regis
             rain+=QString("rain:%1.").arg(v);
               data=rain;
         }else if(address==11){
-            rain+=QString("%1").arg(v);
+            rain+=QString("%1}").arg(v);
             data=rain;
         }else{
              data="暂无数据";

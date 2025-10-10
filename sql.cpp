@@ -2,6 +2,7 @@
 #include "ui_sql.h"
 #include <qmessagebox.h>
 #include<QSqlRecord>
+#include<QFileDialog>
 Sql::Sql(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::Sql)
@@ -32,6 +33,8 @@ void Sql::initDataBaseThread()
     connect(m_sqliteWork,&SqliteWork::isOkInser,this,&Sql::autoRef);
     connect(this,&Sql::clearData,m_sqliteWork,&SqliteWork::clearData);
     connect(m_sqliteWork, &SqliteWork::clearFinished,this, &Sql::onClearFinished);
+    connect(this,&Sql::fileOut,m_sqliteWork,&SqliteWork::fileOut);
+
     m_sqlThread->start();
 }
 
@@ -78,7 +81,7 @@ void Sql::initUi()
 
     setFixedSize(710,657);
     ui->tableView->setColumnWidth(0,80);
-    ui->tableView->setColumnWidth(1,150);
+    ui->tableView->setColumnWidth(1,200);
     ui->tableView->setColumnWidth(2,70);
     ui->tableView->setColumnWidth(3,70);
     ui->tableView->setColumnWidth(4,70);
@@ -263,8 +266,47 @@ void Sql::onClearFinished(bool success)
 
 
 
-void Sql::on_pushButtonExls_clicked()
+void Sql::on_pushButtonExls_clicked()//导出
 {
         //-------------此处标记-----------------
+
+    QString filename=QFileDialog::getSaveFileName(this,"XLS","我被导出了","CSV Files (*.csv);;All File (*)");
+    emit fileOut(filename);
+
+}
+
+
+
+
+void Sql::on_pushButtonPicture_clicked()
+{
+    m_picture=new DataBasePicture(ui->dateTimeEditStart_2->text(),ui->dateTimeEditEnd_2->text());
+    connect(m_picture, &DataBasePicture::dataLoadFinished, this, [this]() {
+        qDebug() << "数据加载完成，显示窗口";
+        m_picture->show();
+    });
+    QSqlQuery query(QSqlDatabase::database("connectionA"));
+    query.prepare("select CurrenTime, temp, humi, light, soil, mq2, rain from qtdata where CurrenTime BETWEEN ? and ?");
+    query.addBindValue(ui->dateTimeEditStart_2->text());
+    query.addBindValue(ui->dateTimeEditEnd_2->text());
+
+    if(!query.exec()){
+        qDebug() << "执行失败";
+        return;
+    }
+
+    QSqlRecord record = query.record();
+    while(query.next()){
+        QStringList row;
+        for(int i = 0; i < record.count(); i++){
+            row << query.value(i).toString();
+        }
+        m_picture->addChartData(row);  // 改为 addChartData
+    }
+
+    // 所有数据添加完成后发射信号
+    m_picture->finishDataLoading();
+
+    m_picture->setAttribute(Qt::WA_DeleteOnClose);
 }
 

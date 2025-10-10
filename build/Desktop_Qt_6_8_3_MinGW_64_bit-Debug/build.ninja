@@ -145,6 +145,14 @@ build CMakeFiles/Humidity.dir/login.cpp.obj: CXX_COMPILER__Humidity_unscanned_De
   OBJECT_DIR = CMakeFiles\Humidity.dir
   OBJECT_FILE_DIR = CMakeFiles\Humidity.dir
 
+build CMakeFiles/Humidity.dir/databasepicture.cpp.obj: CXX_COMPILER__Humidity_unscanned_Debug E$:/SerialQT/Humidity/databasepicture.cpp || cmake_object_order_depends_target_Humidity
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CHARTS_LIB -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_NETWORK_LIB -DQT_OPENGLWIDGETS_LIB -DQT_OPENGL_LIB -DQT_SERIALBUS_LIB -DQT_SERIALPORT_LIB -DQT_SQL_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\Humidity.dir\databasepicture.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -fdiagnostics-color=always
+  INCLUDES = -IE:/SerialQT/Humidity/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/Humidity_autogen/include -isystem E:/QT/6.8.3/mingw_64/include/QtCore -isystem E:/QT/6.8.3/mingw_64/include -isystem E:/QT/6.8.3/mingw_64/mkspecs/win32-g++ -isystem E:/QT/6.8.3/mingw_64/include/QtWidgets -isystem E:/QT/6.8.3/mingw_64/include/QtGui -isystem E:/QT/6.8.3/mingw_64/include/QtCharts -isystem E:/QT/6.8.3/mingw_64/include/QtOpenGL -isystem E:/QT/6.8.3/mingw_64/include/QtOpenGLWidgets -isystem E:/QT/6.8.3/mingw_64/include/QtSerialBus -isystem E:/QT/6.8.3/mingw_64/include/QtNetwork -isystem E:/QT/6.8.3/mingw_64/include/QtSerialPort -isystem E:/QT/6.8.3/mingw_64/include/QtSql
+  OBJECT_DIR = CMakeFiles\Humidity.dir
+  OBJECT_FILE_DIR = CMakeFiles\Humidity.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Humidity
@@ -153,7 +161,7 @@ build CMakeFiles/Humidity.dir/login.cpp.obj: CXX_COMPILER__Humidity_unscanned_De
 #############################################
 # Link the executable Humidity.exe
 
-build Humidity.exe: CXX_EXECUTABLE_LINKER__Humidity_Debug CMakeFiles/Humidity.dir/Humidity_autogen/mocs_compilation.cpp.obj CMakeFiles/Humidity.dir/main.cpp.obj CMakeFiles/Humidity.dir/mainwindow.cpp.obj CMakeFiles/Humidity.dir/deb.cpp.obj CMakeFiles/Humidity.dir/sql.cpp.obj CMakeFiles/Humidity.dir/mymodbus.cpp.obj CMakeFiles/Humidity.dir/networkwork.cpp.obj CMakeFiles/Humidity.dir/sqlitework.cpp.obj CMakeFiles/Humidity.dir/myserials.cpp.obj CMakeFiles/Humidity.dir/myserialwork.cpp.obj CMakeFiles/Humidity.dir/mymodbuswork.cpp.obj CMakeFiles/Humidity.dir/login.cpp.obj | E$:/QT/6.8.3/mingw_64/lib/libQt6Charts.a E$:/QT/6.8.3/mingw_64/lib/libQt6SerialBus.a E$:/QT/6.8.3/mingw_64/lib/libQt6SerialPort.a E$:/QT/6.8.3/mingw_64/lib/libQt6Network.a E$:/QT/6.8.3/mingw_64/lib/libQt6Sql.a E$:/QT/6.8.3/mingw_64/lib/libQt6OpenGLWidgets.a E$:/QT/6.8.3/mingw_64/lib/libQt6Widgets.a E$:/QT/6.8.3/mingw_64/lib/libQt6OpenGL.a E$:/QT/6.8.3/mingw_64/lib/libQt6Gui.a E$:/QT/6.8.3/mingw_64/lib/libQt6Core.a E$:/QT/6.8.3/mingw_64/lib/libQt6EntryPoint.a || Humidity_autogen Humidity_autogen_timestamp_deps
+build Humidity.exe: CXX_EXECUTABLE_LINKER__Humidity_Debug CMakeFiles/Humidity.dir/Humidity_autogen/mocs_compilation.cpp.obj CMakeFiles/Humidity.dir/main.cpp.obj CMakeFiles/Humidity.dir/mainwindow.cpp.obj CMakeFiles/Humidity.dir/deb.cpp.obj CMakeFiles/Humidity.dir/sql.cpp.obj CMakeFiles/Humidity.dir/mymodbus.cpp.obj CMakeFiles/Humidity.dir/networkwork.cpp.obj CMakeFiles/Humidity.dir/sqlitework.cpp.obj CMakeFiles/Humidity.dir/myserials.cpp.obj CMakeFiles/Humidity.dir/myserialwork.cpp.obj CMakeFiles/Humidity.dir/mymodbuswork.cpp.obj CMakeFiles/Humidity.dir/login.cpp.obj CMakeFiles/Humidity.dir/databasepicture.cpp.obj | E$:/QT/6.8.3/mingw_64/lib/libQt6Charts.a E$:/QT/6.8.3/mingw_64/lib/libQt6SerialBus.a E$:/QT/6.8.3/mingw_64/lib/libQt6SerialPort.a E$:/QT/6.8.3/mingw_64/lib/libQt6Network.a E$:/QT/6.8.3/mingw_64/lib/libQt6Sql.a E$:/QT/6.8.3/mingw_64/lib/libQt6OpenGLWidgets.a E$:/QT/6.8.3/mingw_64/lib/libQt6Widgets.a E$:/QT/6.8.3/mingw_64/lib/libQt6OpenGL.a E$:/QT/6.8.3/mingw_64/lib/libQt6Gui.a E$:/QT/6.8.3/mingw_64/lib/libQt6Core.a E$:/QT/6.8.3/mingw_64/lib/libQt6EntryPoint.a || Humidity_autogen Humidity_autogen_timestamp_deps
   FLAGS = -DQT_QML_DEBUG -g
   LINK_FLAGS = -mwindows
   LINK_LIBRARIES = E:/QT/6.8.3/mingw_64/lib/libQt6Charts.a  E:/QT/6.8.3/mingw_64/lib/libQt6SerialBus.a  E:/QT/6.8.3/mingw_64/lib/libQt6SerialPort.a  E:/QT/6.8.3/mingw_64/lib/libQt6Network.a  E:/QT/6.8.3/mingw_64/lib/libQt6Sql.a  E:/QT/6.8.3/mingw_64/lib/libQt6OpenGLWidgets.a  E:/QT/6.8.3/mingw_64/lib/libQt6Widgets.a  E:/QT/6.8.3/mingw_64/lib/libQt6OpenGL.a  E:/QT/6.8.3/mingw_64/lib/libQt6Gui.a  -ld3d11  -ldxgi  -ldxguid  -ld3d12  -luser32  -lws2_32  E:/QT/6.8.3/mingw_64/lib/libQt6Core.a  -lmpr  -luserenv  -lmingw32  E:/QT/6.8.3/mingw_64/lib/libQt6EntryPoint.a  -lshell32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
@@ -240,7 +248,7 @@ build Humidity_autogen_timestamp_deps: phony
 #############################################
 # Utility command for Humidity_autogen
 
-build Humidity_autogen: phony CMakeFiles/Humidity_autogen Humidity_autogen/include/ui_mainwindow.h Humidity_autogen/include/ui_deb.h Humidity_autogen/include/ui_sql.h Humidity_autogen/include/ui_mymodbus.h Humidity_autogen/include/ui_myserials.h Humidity_autogen/include/ui_login.h Humidity_autogen/timestamp Humidity_autogen/mocs_compilation.cpp Humidity_autogen_timestamp_deps
+build Humidity_autogen: phony CMakeFiles/Humidity_autogen Humidity_autogen/include/ui_mainwindow.h Humidity_autogen/include/ui_deb.h Humidity_autogen/include/ui_sql.h Humidity_autogen/include/ui_mymodbus.h Humidity_autogen/include/ui_myserials.h Humidity_autogen/include/ui_login.h Humidity_autogen/include/ui_databasepicture.h Humidity_autogen/timestamp Humidity_autogen/mocs_compilation.cpp Humidity_autogen_timestamp_deps
 
 
 #############################################
@@ -257,7 +265,7 @@ build Humidity_autogen/timestamp Humidity_autogen/mocs_compilation.cpp | ${cmake
 #############################################
 # Phony custom command for CMakeFiles\Humidity_autogen
 
-build CMakeFiles/Humidity_autogen Humidity_autogen/include/ui_mainwindow.h Humidity_autogen/include/ui_deb.h Humidity_autogen/include/ui_sql.h Humidity_autogen/include/ui_mymodbus.h Humidity_autogen/include/ui_myserials.h Humidity_autogen/include/ui_login.h | ${cmake_ninja_workdir}CMakeFiles/Humidity_autogen ${cmake_ninja_workdir}Humidity_autogen/include/ui_mainwindow.h ${cmake_ninja_workdir}Humidity_autogen/include/ui_deb.h ${cmake_ninja_workdir}Humidity_autogen/include/ui_sql.h ${cmake_ninja_workdir}Humidity_autogen/include/ui_mymodbus.h ${cmake_ninja_workdir}Humidity_autogen/include/ui_myserials.h ${cmake_ninja_workdir}Humidity_autogen/include/ui_login.h: phony Humidity_autogen/timestamp || Humidity_autogen_timestamp_deps
+build CMakeFiles/Humidity_autogen Humidity_autogen/include/ui_mainwindow.h Humidity_autogen/include/ui_deb.h Humidity_autogen/include/ui_sql.h Humidity_autogen/include/ui_mymodbus.h Humidity_autogen/include/ui_myserials.h Humidity_autogen/include/ui_login.h Humidity_autogen/include/ui_databasepicture.h | ${cmake_ninja_workdir}CMakeFiles/Humidity_autogen ${cmake_ninja_workdir}Humidity_autogen/include/ui_mainwindow.h ${cmake_ninja_workdir}Humidity_autogen/include/ui_deb.h ${cmake_ninja_workdir}Humidity_autogen/include/ui_sql.h ${cmake_ninja_workdir}Humidity_autogen/include/ui_mymodbus.h ${cmake_ninja_workdir}Humidity_autogen/include/ui_myserials.h ${cmake_ninja_workdir}Humidity_autogen/include/ui_login.h ${cmake_ninja_workdir}Humidity_autogen/include/ui_databasepicture.h: phony Humidity_autogen/timestamp || Humidity_autogen_timestamp_deps
 
 # =============================================================================
 # Target aliases.

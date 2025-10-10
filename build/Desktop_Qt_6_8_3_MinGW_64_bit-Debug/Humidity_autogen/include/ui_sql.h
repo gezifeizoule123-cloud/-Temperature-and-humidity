@@ -55,6 +55,7 @@ public:
     QFrame *line_2;
     QPushButton *clear_bt;
     QPushButton *pushButtonExls;
+    QPushButton *pushButtonPicture;
 
     void setupUi(QWidget *Sql)
     {
@@ -551,6 +552,11 @@ public:
 "border-radius:10px;		 \n"
 "color: rgb(255, 255, 255);\n"
 ""));
+        pushButtonPicture = new QPushButton(Sql);
+        pushButtonPicture->setObjectName("pushButtonPicture");
+        pushButtonPicture->setGeometry(QRect(20, 10, 181, 41));
+        pushButtonPicture->setStyleSheet(QString::fromUtf8("background-color: rgb(170, 0, 127);\n"
+"font: 700 12pt \"\345\276\256\350\275\257\351\233\205\351\273\221\";"));
         tableView->raise();
         title->raise();
         start_l->raise();
@@ -569,6 +575,7 @@ public:
         clear_bt->raise();
         comboBox->raise();
         pushButtonExls->raise();
+        pushButtonPicture->raise();
 
         retranslateUi(Sql);
 
@@ -597,6 +604,7 @@ public:
         displayAll_bt->setText(QCoreApplication::translate("Sql", "\346\230\276\347\244\272\346\211\200\346\234\211", nullptr));
         clear_bt->setText(QCoreApplication::translate("Sql", "\346\270\205\347\251\272\346\225\260\346\215\256", nullptr));
         pushButtonExls->setText(QCoreApplication::translate("Sql", "\345\257\274\345\207\272", nullptr));
+        pushButtonPicture->setText(QCoreApplication::translate("Sql", "\346\230\276\347\244\272\345\216\206\345\217\262\346\233\262\347\272\277\345\233\276", nullptr));
     } // retranslateUi
 
 };

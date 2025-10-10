@@ -30,6 +30,7 @@ private slots:
 signals:
      void sendDataRequested(const QString &data);
     void modbusRequest();
+     void modbusReceiveMasterData(const QString &data);
 private:
     Ui::Deb *ui;
     QTimer m_timer;

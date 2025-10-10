@@ -50,6 +50,13 @@ static constexpr auto qt_meta_stringdata_ZN3SqlE = QtMocHelpers::stringData(
     "s",
     "clearData",
     "signaluserIn",
+    "fileOut",
+    "filename",
+    "signalTimePicture",
+    "startTime",
+    "endTime",
+    "signalSelectOnPictureData",
+    "isOrNoSelectOk",
     "on_exit_bt_clicked",
     "onClearFinished",
     "success",
@@ -63,7 +70,8 @@ static constexpr auto qt_meta_stringdata_ZN3SqlE = QtMocHelpers::stringData(
     "on_clear_bt_clicked",
     "userIn",
     "islogin",
-    "on_pushButtonExls_clicked"
+    "on_pushButtonExls_clicked",
+    "on_pushButtonPicture_clicked"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -75,42 +83,51 @@ Q_CONSTINIT static const uint qt_meta_data_ZN3SqlE[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-      16,   14, // methods
+      21,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       4,       // signalCount
+       8,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    6,  110,    2, 0x06,    1 /* Public */,
-       9,    1,  123,    2, 0x06,    8 /* Public */,
-      11,    0,  126,    2, 0x06,   10 /* Public */,
-      12,    1,  127,    2, 0x06,   11 /* Public */,
+       1,    6,  140,    2, 0x06,    1 /* Public */,
+       9,    1,  153,    2, 0x06,    8 /* Public */,
+      11,    0,  156,    2, 0x06,   10 /* Public */,
+      12,    1,  157,    2, 0x06,   11 /* Public */,
+      13,    1,  160,    2, 0x06,   13 /* Public */,
+      15,    2,  163,    2, 0x06,   15 /* Public */,
+      18,    2,  168,    2, 0x06,   18 /* Public */,
+      19,    0,  173,    2, 0x06,   21 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-      13,    0,  130,    2, 0x0a,   13 /* Public */,
-      14,    1,  131,    2, 0x0a,   14 /* Public */,
-      16,    0,  134,    2, 0x0a,   16 /* Public */,
-      17,    0,  135,    2, 0x0a,   17 /* Public */,
-      18,    0,  136,    2, 0x0a,   18 /* Public */,
-      19,    0,  137,    2, 0x0a,   19 /* Public */,
-      20,    0,  138,    2, 0x0a,   20 /* Public */,
-      21,    0,  139,    2, 0x0a,   21 /* Public */,
-      22,    0,  140,    2, 0x0a,   22 /* Public */,
-      23,    0,  141,    2, 0x0a,   23 /* Public */,
-      24,    1,  142,    2, 0x0a,   24 /* Public */,
-      26,    0,  145,    2, 0x08,   26 /* Private */,
+      20,    0,  174,    2, 0x0a,   22 /* Public */,
+      21,    1,  175,    2, 0x0a,   23 /* Public */,
+      23,    0,  178,    2, 0x0a,   25 /* Public */,
+      24,    0,  179,    2, 0x0a,   26 /* Public */,
+      25,    0,  180,    2, 0x0a,   27 /* Public */,
+      26,    0,  181,    2, 0x0a,   28 /* Public */,
+      27,    0,  182,    2, 0x0a,   29 /* Public */,
+      28,    0,  183,    2, 0x0a,   30 /* Public */,
+      29,    0,  184,    2, 0x0a,   31 /* Public */,
+      30,    0,  185,    2, 0x0a,   32 /* Public */,
+      31,    1,  186,    2, 0x0a,   33 /* Public */,
+      33,    0,  189,    2, 0x08,   35 /* Private */,
+      34,    0,  190,    2, 0x08,   36 /* Private */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Float, QMetaType::Float, QMetaType::Float, QMetaType::Float, QMetaType::Float, QMetaType::Float,    3,    4,    5,    6,    7,    8,
     QMetaType::Void, QMetaType::Bool,   10,
     QMetaType::Void,
     QMetaType::Void, QMetaType::Bool,    9,
+    QMetaType::Void, QMetaType::QString,   14,
+    QMetaType::Void, QMetaType::QString, QMetaType::QString,   16,   17,
+    QMetaType::Void, QMetaType::QString, QMetaType::QString,   16,   17,
+    QMetaType::Void,
 
  // slots: parameters
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Bool,   15,
+    QMetaType::Void, QMetaType::Bool,   22,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -119,7 +136,8 @@ Q_CONSTINIT static const uint qt_meta_data_ZN3SqlE[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 25,   10,
+    QMetaType::Void, 0x80000000 | 32,   10,
+    QMetaType::Void,
     QMetaType::Void,
 
        0        // eod
@@ -150,6 +168,19 @@ Q_CONSTINIT const QMetaObject Sql::staticMetaObject = { {
         // method 'signaluserIn'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'fileOut'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
+        // method 'signalTimePicture'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
+        // method 'signalSelectOnPictureData'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
+        // method 'isOrNoSelectOk'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_exit_bt_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'onClearFinished'
@@ -175,6 +206,8 @@ Q_CONSTINIT const QMetaObject Sql::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<const islogin &, std::false_type>,
         // method 'on_pushButtonExls_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_pushButtonPicture_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -189,18 +222,23 @@ void Sql::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **
         case 1: _t->isRoot((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1]))); break;
         case 2: _t->clearData(); break;
         case 3: _t->signaluserIn((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1]))); break;
-        case 4: _t->on_exit_bt_clicked(); break;
-        case 5: _t->onClearFinished((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1]))); break;
-        case 6: _t->on_select_data_bt_clicked(); break;
-        case 7: _t->on_displayAll_bt_clicked(); break;
-        case 8: _t->on_now_bt_2_clicked(); break;
-        case 9: _t->on_currDay_bt_clicked(); break;
-        case 10: _t->on_currThDay_bt_clicked(); break;
-        case 11: _t->on_currWeek_bt_clicked(); break;
-        case 12: _t->on_select_val_bt_clicked(); break;
-        case 13: _t->on_clear_bt_clicked(); break;
-        case 14: _t->userIn((*reinterpret_cast< std::add_pointer_t<islogin>>(_a[1]))); break;
-        case 15: _t->on_pushButtonExls_clicked(); break;
+        case 4: _t->fileOut((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 5: _t->signalTimePicture((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
+        case 6: _t->signalSelectOnPictureData((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
+        case 7: _t->isOrNoSelectOk(); break;
+        case 8: _t->on_exit_bt_clicked(); break;
+        case 9: _t->onClearFinished((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1]))); break;
+        case 10: _t->on_select_data_bt_clicked(); break;
+        case 11: _t->on_displayAll_bt_clicked(); break;
+        case 12: _t->on_now_bt_2_clicked(); break;
+        case 13: _t->on_currDay_bt_clicked(); break;
+        case 14: _t->on_currThDay_bt_clicked(); break;
+        case 15: _t->on_currWeek_bt_clicked(); break;
+        case 16: _t->on_select_val_bt_clicked(); break;
+        case 17: _t->on_clear_bt_clicked(); break;
+        case 18: _t->userIn((*reinterpret_cast< std::add_pointer_t<islogin>>(_a[1]))); break;
+        case 19: _t->on_pushButtonExls_clicked(); break;
+        case 20: _t->on_pushButtonPicture_clicked(); break;
         default: ;
         }
     }
@@ -234,6 +272,34 @@ void Sql::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **
                 return;
             }
         }
+        {
+            using _q_method_type = void (Sql::*)(const QString & );
+            if (_q_method_type _q_method = &Sql::fileOut; *reinterpret_cast<_q_method_type *>(_a[1]) == _q_method) {
+                *result = 4;
+                return;
+            }
+        }
+        {
+            using _q_method_type = void (Sql::*)(const QString & , const QString & );
+            if (_q_method_type _q_method = &Sql::signalTimePicture; *reinterpret_cast<_q_method_type *>(_a[1]) == _q_method) {
+                *result = 5;
+                return;
+            }
+        }
+        {
+            using _q_method_type = void (Sql::*)(const QString & , const QString & );
+            if (_q_method_type _q_method = &Sql::signalSelectOnPictureData; *reinterpret_cast<_q_method_type *>(_a[1]) == _q_method) {
+                *result = 6;
+                return;
+            }
+        }
+        {
+            using _q_method_type = void (Sql::*)();
+            if (_q_method_type _q_method = &Sql::isOrNoSelectOk; *reinterpret_cast<_q_method_type *>(_a[1]) == _q_method) {
+                *result = 7;
+                return;
+            }
+        }
     }
 }
 
@@ -256,14 +322,14 @@ int Sql::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 16)
+        if (_id < 21)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 16;
+        _id -= 21;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 16)
+        if (_id < 21)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 16;
+        _id -= 21;
     }
     return _id;
 }
@@ -293,5 +359,32 @@ void Sql::signaluserIn(bool _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 3, _a);
+}
+
+// SIGNAL 4
+void Sql::fileOut(const QString & _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 4, _a);
+}
+
+// SIGNAL 5
+void Sql::signalTimePicture(const QString & _t1, const QString & _t2)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))) };
+    QMetaObject::activate(this, &staticMetaObject, 5, _a);
+}
+
+// SIGNAL 6
+void Sql::signalSelectOnPictureData(const QString & _t1, const QString & _t2)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))) };
+    QMetaObject::activate(this, &staticMetaObject, 6, _a);
+}
+
+// SIGNAL 7
+void Sql::isOrNoSelectOk()
+{
+    QMetaObject::activate(this, &staticMetaObject, 7, nullptr);
 }
 QT_WARNING_POP

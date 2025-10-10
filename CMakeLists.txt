@@ -29,6 +29,7 @@ qt_add_executable(Humidity
     ModbusSettings.h
     login.h login.cpp login.ui
     loginIDandPassword.h
+    databasepicture.h databasepicture.cpp databasepicture.ui
 
 
 

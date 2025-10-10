@@ -907,6 +907,12 @@
 			"EWIEGA46WW/moc_ModbusSettings.cpp",
 			null
 		],
+		[
+			"E:/SerialQT/Humidity/databasepicture.h",
+			"MU",
+			"EWIEGA46WW/moc_databasepicture.cpp",
+			null
+		],
 		[ "E:/SerialQT/Humidity/deb.h", "MU", "EWIEGA46WW/moc_deb.cpp", null ],
 		[
 			"E:/SerialQT/Humidity/login.h",
@@ -1048,6 +1054,7 @@
 	"SETTINGS_FILE" : "E:/SerialQT/Humidity/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/CMakeFiles/Humidity_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
+		[ "E:/SerialQT/Humidity/databasepicture.cpp", "MU", null ],
 		[ "E:/SerialQT/Humidity/deb.cpp", "MU", null ],
 		[ "E:/SerialQT/Humidity/login.cpp", "MU", null ],
 		[ "E:/SerialQT/Humidity/main.cpp", "MU", null ],

@@ -847,6 +847,8 @@ Humidity_autogen/timestamp: \
 	E:/SerialQT/Humidity/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeRCCompiler.cmake \
 	E:/SerialQT/Humidity/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeSystem.cmake \
 	E:/SerialQT/Humidity/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/Humidity_autogen/moc_predefs.h \
+	E:/SerialQT/Humidity/databasepicture.cpp \
+	E:/SerialQT/Humidity/databasepicture.h \
 	E:/SerialQT/Humidity/deb.cpp \
 	E:/SerialQT/Humidity/deb.h \
 	E:/SerialQT/Humidity/login.cpp \
@@ -869,6 +871,7 @@ Humidity_autogen/timestamp: \
 	E:/SerialQT/Humidity/sql.h \
 	E:/SerialQT/Humidity/sqlitework.cpp \
 	E:/SerialQT/Humidity/sqlitework.h \
+	E:/SerialQT/Humidity/databasepicture.ui \
 	E:/SerialQT/Humidity/deb.ui \
 	E:/SerialQT/Humidity/login.ui \
 	E:/SerialQT/Humidity/mainwindow.ui \

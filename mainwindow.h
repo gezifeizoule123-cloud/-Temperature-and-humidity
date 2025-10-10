@@ -140,6 +140,7 @@ signals:
     void closeModBus();
     void closeLogin();
     void signalisLogin(const islogin &s);
+    void signalSendModbus(const QString &data);
 
 private:
     void createTableOne();

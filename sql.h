@@ -9,6 +9,7 @@
 #include<QSqlQuery>
 #include<QThread>
 #include"loginIDandPassword.h"
+#include "databasepicture.h"
 namespace Ui {
 class Sql;
 }
@@ -33,6 +34,10 @@ signals:
     void isRoot(bool s);
     void clearData();
     void signaluserIn(bool isRoot);
+    void fileOut(const QString &filename);
+    void signalTimePicture(const QString &startTime,const QString &endTime);
+    void signalSelectOnPictureData(const QString &startTime,const QString &endTime);
+    void isOrNoSelectOk();
 
 public slots:
     void on_exit_bt_clicked();
@@ -59,12 +64,17 @@ private slots:
 
     void on_pushButtonExls_clicked();
 
+
+
+    void on_pushButtonPicture_clicked();
+
 private:
     Ui::Sql *ui;
     QSqlQueryModel *m_tableMod;
     bool isauto=true;//自动实时刷新
     QThread * m_sqlThread;
     SqliteWork *m_sqliteWork;
+    DataBasePicture *m_picture;
 
 };
 

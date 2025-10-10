@@ -27,6 +27,8 @@ void Deb::DisplayData(QString data)
 {
 
     ui->rec_edi->appendPlainText(data);
+    if(data.startsWith("Params")){
+        emit modbusReceiveMasterData(data);}
 
 }
 

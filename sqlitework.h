@@ -1,6 +1,7 @@
 #ifndef SQLITEWORK_H
 #define SQLITEWORK_H
 
+#include "databasepicture.h"
 #include <QObject>
 #include<QThread>
 #include<QSqlDatabase>
@@ -15,11 +16,14 @@ public slots:
     void receiveInsert(float Stemp,float  Shumi,float  Slight,float  Ssoil,float  Smq2,float  Srain);
     void clearData();
     void initConnect();
+    void fileOut(const QString &filename);
 
 
 signals:
     void isOkInser(bool t);
     void clearFinished(bool success);  // 清除完成信号
+
+
 
 private:
 

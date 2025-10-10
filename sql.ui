@@ -893,6 +893,23 @@ color: rgb(255, 255, 255);
     <string>导出</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="pushButtonPicture">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>10</y>
+     <width>181</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(170, 0, 127);
+font: 700 12pt &quot;微软雅黑&quot;;</string>
+   </property>
+   <property name="text">
+    <string>显示历史曲线图</string>
+   </property>
+  </widget>
   <zorder>tableView</zorder>
   <zorder>title</zorder>
   <zorder>start_l</zorder>
@@ -911,6 +928,7 @@ color: rgb(255, 255, 255);
   <zorder>clear_bt</zorder>
   <zorder>comboBox</zorder>
   <zorder>pushButtonExls</zorder>
+  <zorder>pushButtonPicture</zorder>
  </widget>
  <resources/>
  <connections/>

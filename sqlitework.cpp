@@ -1,7 +1,10 @@
 #include "sqlitework.h"
+#include "databasepicture.h"
 #include <qdatetime.h>
 #include <qsqlquery.h>
-
+#include<QFileDialog>
+#include<QTextStream>
+#include <qsqlrecord.h>
 SqliteWork::SqliteWork(QObject *parent)
     : QObject{parent}
 {
@@ -12,8 +15,8 @@ SqliteWork::SqliteWork(QObject *parent)
 void SqliteWork::receiveInsert(float Stemp, float Shumi, float Slight, float Ssoil, float Smq2, float Srain)
 {
     QSqlQuery query(QSqlDatabase::database("connectionB"));
-    query.prepare("insert into qtdata values (?,?,?,?,?,?,?,?);");
-    query.addBindValue(NULL);
+    query.prepare("INSERT INTO qtdata (CurrenTime, temp, humi, light, soil, mq2, rain) VALUES (?, ?, ?, ?, ?, ?, ?)");
+
     query.addBindValue(QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss"));
     query.addBindValue(Stemp);
     query.addBindValue(Shumi);
@@ -23,7 +26,7 @@ void SqliteWork::receiveInsert(float Stemp, float Shumi, float Slight, float Sso
     query.addBindValue(Srain);
     if(!query.exec())
     {
-       // qDebug()<<"插入失败";
+       qDebug()<<"插入失败";
     }
     emit  isOkInser(true);
 
@@ -57,3 +60,37 @@ void SqliteWork::initConnect()
         }
     }
 }
+
+void SqliteWork::fileOut(const QString&filename)
+{
+    qDebug()<<"this is fileOut Thread";
+    QFile file(filename);
+    file.open(QIODevice::WriteOnly|QIODevice::Text);
+
+    QTextStream out(&file);
+    out.setEncoding(QStringConverter::Utf8);
+  QSqlQuery query(QSqlDatabase::database("connectionB"));
+    query.exec("select *from qtdata");
+  QStringList filenames;
+    QSqlRecord record=query.record();
+  for(int i=0;i<record.count();i++){
+        filenames<<record.fieldName(i);
+  }
+  out<<filenames.join(",")<<"\n";
+
+
+  qDebug()<<filenames;
+  while(query.next()){
+      QStringList row;
+      for(int i=0;i<filenames.count();i++){
+          row<<query.value(i).toString();
+          qDebug()<<"row";
+      }
+      out<<row.join(",")+"\n";
+
+  }
+  file.close();
+
+
+ }
+
