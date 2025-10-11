@@ -42,11 +42,31 @@ static constexpr auto qt_meta_stringdata_ZN8MyModBusE = QtMocHelpers::stringData
     "",
     "Settings",
     "s",
+    "signalStop",
+    "signalReceive",
+    "address",
+    "signalDoRequest",
+    "signalSlaveToDatabase",
+    "giveDBandDisplay",
+    "QMap<QString,float>",
+    "numberData",
+    "QMap<QString,QString>",
+    "strnumber",
+    "SendModBusSlave",
+    "data",
+    "id",
+    "changeSlaveData",
+    "signalBtnSend",
     "creatModbus",
     "stopModBus",
+    "doRequest",
+    "SendModbus",
     "on_MasterOrSlave_currentIndexChanged",
     "index",
-    "on_mType_currentIndexChanged"
+    "on_mType_currentIndexChanged",
+    "ReceiveMessage",
+    "QModbusDataUnit::RegisterType",
+    "RegisterType"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -58,30 +78,52 @@ Q_CONSTINIT static const uint qt_meta_data_ZN8MyModBusE[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-       5,   14, // methods
+      16,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       1,       // signalCount
+       9,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,   44,    2, 0x06,    1 /* Public */,
+       1,    1,  110,    2, 0x06,    1 /* Public */,
+       5,    0,  113,    2, 0x06,    3 /* Public */,
+       6,    1,  114,    2, 0x06,    4 /* Public */,
+       8,    1,  117,    2, 0x06,    6 /* Public */,
+       9,    1,  120,    2, 0x06,    8 /* Public */,
+      10,    2,  123,    2, 0x06,   10 /* Public */,
+      15,    3,  128,    2, 0x06,   13 /* Public */,
+      18,    2,  135,    2, 0x06,   17 /* Public */,
+      19,    1,  140,    2, 0x06,   20 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       5,    0,   47,    2, 0x0a,    3 /* Public */,
-       6,    0,   48,    2, 0x0a,    4 /* Public */,
-       7,    1,   49,    2, 0x08,    5 /* Private */,
-       9,    1,   52,    2, 0x08,    7 /* Private */,
+      20,    0,  143,    2, 0x0a,   22 /* Public */,
+      21,    0,  144,    2, 0x0a,   23 /* Public */,
+      22,    0,  145,    2, 0x0a,   24 /* Public */,
+      23,    1,  146,    2, 0x0a,   25 /* Public */,
+      24,    1,  149,    2, 0x08,   27 /* Private */,
+      26,    1,  152,    2, 0x08,   29 /* Private */,
+      27,    2,  155,    2, 0x08,   31 /* Private */,
 
  // signals: parameters
     QMetaType::Void, 0x80000000 | 3,    4,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,    7,
+    QMetaType::Void, 0x80000000 | 3,    4,
+    QMetaType::Void, QMetaType::QString,    4,
+    QMetaType::Void, 0x80000000 | 11, 0x80000000 | 13,   12,   14,
+    QMetaType::Void, QMetaType::QString, QMetaType::Int, 0x80000000 | 3,   16,   17,    4,
+    QMetaType::Void, QMetaType::QString, 0x80000000 | 3,   16,    4,
+    QMetaType::Void, QMetaType::QString,   16,
 
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Int,    8,
-    QMetaType::Void, QMetaType::Int,    8,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,   16,
+    QMetaType::Void, QMetaType::Int,   25,
+    QMetaType::Void, QMetaType::Int,   25,
+    QMetaType::Void, QMetaType::QString, 0x80000000 | 28,    7,   29,
 
        0        // eod
 };
@@ -98,16 +140,52 @@ Q_CONSTINIT const QMetaObject MyModBus::staticMetaObject = { {
         // method 'createModBus'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<const Settings &, std::false_type>,
+        // method 'signalStop'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'signalReceive'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
+        // method 'signalDoRequest'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const Settings &, std::false_type>,
+        // method 'signalSlaveToDatabase'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
+        // method 'giveDBandDisplay'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QMap<QString,float>, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QMap<QString,QString>, std::false_type>,
+        // method 'SendModBusSlave'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        QtPrivate::TypeAndForceComplete<Settings, std::false_type>,
+        // method 'changeSlaveData'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
+        QtPrivate::TypeAndForceComplete<Settings, std::false_type>,
+        // method 'signalBtnSend'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
         // method 'creatModbus'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'stopModBus'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'doRequest'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'SendModbus'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
         // method 'on_MasterOrSlave_currentIndexChanged'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<int, std::false_type>,
         // method 'on_mType_currentIndexChanged'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<int, std::false_type>
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'ReceiveMessage'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QModbusDataUnit::RegisterType, std::false_type>
     >,
     nullptr
 } };
@@ -118,11 +196,34 @@ void MyModBus::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
         case 0: _t->createModBus((*reinterpret_cast< std::add_pointer_t<Settings>>(_a[1]))); break;
-        case 1: _t->creatModbus(); break;
-        case 2: _t->stopModBus(); break;
-        case 3: _t->on_MasterOrSlave_currentIndexChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 4: _t->on_mType_currentIndexChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 1: _t->signalStop(); break;
+        case 2: _t->signalReceive((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 3: _t->signalDoRequest((*reinterpret_cast< std::add_pointer_t<Settings>>(_a[1]))); break;
+        case 4: _t->signalSlaveToDatabase((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 5: _t->giveDBandDisplay((*reinterpret_cast< std::add_pointer_t<QMap<QString,float>>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QMap<QString,QString>>>(_a[2]))); break;
+        case 6: _t->SendModBusSlave((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<Settings>>(_a[3]))); break;
+        case 7: _t->changeSlaveData((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<Settings>>(_a[2]))); break;
+        case 8: _t->signalBtnSend((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 9: _t->creatModbus(); break;
+        case 10: _t->stopModBus(); break;
+        case 11: _t->doRequest(); break;
+        case 12: _t->SendModbus((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 13: _t->on_MasterOrSlave_currentIndexChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 14: _t->on_mType_currentIndexChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 15: _t->ReceiveMessage((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QModbusDataUnit::RegisterType>>(_a[2]))); break;
         default: ;
+        }
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        switch (_id) {
+        default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+        case 15:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 1:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QModbusDataUnit::RegisterType >(); break;
+            }
+            break;
         }
     }
     if (_c == QMetaObject::IndexOfMethod) {
@@ -131,6 +232,62 @@ void MyModBus::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
             using _q_method_type = void (MyModBus::*)(const Settings & );
             if (_q_method_type _q_method = &MyModBus::createModBus; *reinterpret_cast<_q_method_type *>(_a[1]) == _q_method) {
                 *result = 0;
+                return;
+            }
+        }
+        {
+            using _q_method_type = void (MyModBus::*)();
+            if (_q_method_type _q_method = &MyModBus::signalStop; *reinterpret_cast<_q_method_type *>(_a[1]) == _q_method) {
+                *result = 1;
+                return;
+            }
+        }
+        {
+            using _q_method_type = void (MyModBus::*)(const QString & );
+            if (_q_method_type _q_method = &MyModBus::signalReceive; *reinterpret_cast<_q_method_type *>(_a[1]) == _q_method) {
+                *result = 2;
+                return;
+            }
+        }
+        {
+            using _q_method_type = void (MyModBus::*)(const Settings & );
+            if (_q_method_type _q_method = &MyModBus::signalDoRequest; *reinterpret_cast<_q_method_type *>(_a[1]) == _q_method) {
+                *result = 3;
+                return;
+            }
+        }
+        {
+            using _q_method_type = void (MyModBus::*)(QString );
+            if (_q_method_type _q_method = &MyModBus::signalSlaveToDatabase; *reinterpret_cast<_q_method_type *>(_a[1]) == _q_method) {
+                *result = 4;
+                return;
+            }
+        }
+        {
+            using _q_method_type = void (MyModBus::*)(QMap<QString,float> , QMap<QString,QString> );
+            if (_q_method_type _q_method = &MyModBus::giveDBandDisplay; *reinterpret_cast<_q_method_type *>(_a[1]) == _q_method) {
+                *result = 5;
+                return;
+            }
+        }
+        {
+            using _q_method_type = void (MyModBus::*)(const QString & , int , Settings );
+            if (_q_method_type _q_method = &MyModBus::SendModBusSlave; *reinterpret_cast<_q_method_type *>(_a[1]) == _q_method) {
+                *result = 6;
+                return;
+            }
+        }
+        {
+            using _q_method_type = void (MyModBus::*)(const QString & , Settings );
+            if (_q_method_type _q_method = &MyModBus::changeSlaveData; *reinterpret_cast<_q_method_type *>(_a[1]) == _q_method) {
+                *result = 7;
+                return;
+            }
+        }
+        {
+            using _q_method_type = void (MyModBus::*)(const QString & );
+            if (_q_method_type _q_method = &MyModBus::signalBtnSend; *reinterpret_cast<_q_method_type *>(_a[1]) == _q_method) {
+                *result = 8;
                 return;
             }
         }
@@ -156,14 +313,14 @@ int MyModBus::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 5)
+        if (_id < 16)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 5;
+        _id -= 16;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 5)
-            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 5;
+        if (_id < 16)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 16;
     }
     return _id;
 }
@@ -173,5 +330,60 @@ void MyModBus::createModBus(const Settings & _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
+}
+
+// SIGNAL 1
+void MyModBus::signalStop()
+{
+    QMetaObject::activate(this, &staticMetaObject, 1, nullptr);
+}
+
+// SIGNAL 2
+void MyModBus::signalReceive(const QString & _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 2, _a);
+}
+
+// SIGNAL 3
+void MyModBus::signalDoRequest(const Settings & _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 3, _a);
+}
+
+// SIGNAL 4
+void MyModBus::signalSlaveToDatabase(QString _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 4, _a);
+}
+
+// SIGNAL 5
+void MyModBus::giveDBandDisplay(QMap<QString,float> _t1, QMap<QString,QString> _t2)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))) };
+    QMetaObject::activate(this, &staticMetaObject, 5, _a);
+}
+
+// SIGNAL 6
+void MyModBus::SendModBusSlave(const QString & _t1, int _t2, Settings _t3)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t3))) };
+    QMetaObject::activate(this, &staticMetaObject, 6, _a);
+}
+
+// SIGNAL 7
+void MyModBus::changeSlaveData(const QString & _t1, Settings _t2)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))) };
+    QMetaObject::activate(this, &staticMetaObject, 7, _a);
+}
+
+// SIGNAL 8
+void MyModBus::signalBtnSend(const QString & _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 8, _a);
 }
 QT_WARNING_POP

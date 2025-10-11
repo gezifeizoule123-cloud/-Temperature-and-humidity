@@ -382,4 +382,6 @@ E:/SerialQT/Humidity/build/Desktop_Qt_6_8_3_MinGW_64_bit-Release/Humidity_autoge
   E:/QT/Tools/mingw1310_64/x86_64-w64-mingw32/include/time.h \
   E:/QT/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
   E:/QT/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
+  E:/SerialQT/Humidity/databasepicture.h \
+  E:/SerialQT/Humidity/loginIDandPassword.h \
   E:/SerialQT/Humidity/sqlitework.h

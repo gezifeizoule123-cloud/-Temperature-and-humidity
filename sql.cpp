@@ -67,6 +67,7 @@ void Sql::initDatabase()
                    "name VARCHAR(50) PRIMARY KEY, "
                    "password VARCHAR(50) NOT NULL, "
                     "type VARCHAR(20) NOT NULL)")){qDebug()<<"login 创建失败";}
+    if( !query.exec("insert ")){qDebug()<<"login 插入失败";}
 
 
 

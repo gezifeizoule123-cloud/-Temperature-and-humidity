@@ -54,12 +54,14 @@ public:
     QPushButton *displayAll_bt;
     QFrame *line_2;
     QPushButton *clear_bt;
+    QPushButton *pushButtonExls;
+    QPushButton *pushButtonPicture;
 
     void setupUi(QWidget *Sql)
     {
         if (Sql->objectName().isEmpty())
             Sql->setObjectName("Sql");
-        Sql->resize(710, 657);
+        Sql->resize(710, 685);
         Sql->setStyleSheet(QString::fromUtf8("/* \346\267\241\346\243\225\350\211\262\346\270\251\346\232\226\350\203\214\346\231\257 - QWidget\344\270\273\347\252\227\345\217\243 */\n"
 "QWidget {\n"
 "    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,\n"
@@ -329,7 +331,7 @@ public:
 ""));
         comboBox = new QComboBox(Sql);
         comboBox->setObjectName("comboBox");
-        comboBox->setGeometry(QRect(510, 512, 151, 41));
+        comboBox->setGeometry(QRect(520, 520, 151, 41));
         QFont font3;
         font3.setFamilies({QString::fromUtf8("\346\245\267\344\275\223")});
         font3.setPointSize(13);
@@ -350,8 +352,14 @@ public:
         exit_bt = new QPushButton(Sql);
         exit_bt->setObjectName("exit_bt");
         exit_bt->setGeometry(QRect(360, 484, 111, 41));
-        exit_bt->setFont(font2);
+        QFont font4;
+        font4.setFamilies({QString::fromUtf8("\345\276\256\350\275\257\351\233\205\351\273\221")});
+        font4.setPointSize(11);
+        font4.setBold(true);
+        font4.setItalic(false);
+        exit_bt->setFont(font4);
         exit_bt->setStyleSheet(QString::fromUtf8("border: 2px solid rgb(59, 59, 208);   \n"
+"font: 700 11pt \"\345\276\256\350\275\257\351\233\205\351\273\221\";\n"
 "border-radius:10px;		 \n"
 "background-color: rgb(85, 85, 255);\n"
 "color: rgb(255, 255, 255);			\n"
@@ -365,7 +373,7 @@ public:
         dateTimeEdit_2->setTime(QTime(20, 50, 0));
         groupBox = new QGroupBox(Sql);
         groupBox->setObjectName("groupBox");
-        groupBox->setGeometry(QRect(490, 490, 191, 151));
+        groupBox->setGeometry(QRect(490, 490, 211, 181));
         groupBox->setFont(font1);
         groupBox->setStyleSheet(QString::fromUtf8("border:2px solid rgb(80, 229, 229);\n"
 "border-radius:10px;		 \n"
@@ -379,11 +387,11 @@ public:
         groupBox->setCheckable(false);
         spinBox_2 = new QSpinBox(Sql);
         spinBox_2->setObjectName("spinBox_2");
-        spinBox_2->setGeometry(QRect(590, 560, 91, 41));
-        QFont font4;
-        font4.setFamilies({QString::fromUtf8("\346\245\267\344\275\223")});
-        font4.setPointSize(10);
-        spinBox_2->setFont(font4);
+        spinBox_2->setGeometry(QRect(600, 580, 91, 41));
+        QFont font5;
+        font5.setFamilies({QString::fromUtf8("\346\245\267\344\275\223")});
+        font5.setPointSize(10);
+        spinBox_2->setFont(font5);
         spinBox_2->setStyleSheet(QString::fromUtf8("border:2px solid rgb(140, 66, 0);\n"
 "border-radius:10px;		 \n"
 "background-color: rgb(198, 66, 0);\n"
@@ -396,11 +404,11 @@ public:
         spinBox_2->setValue(100);
         select_val_bt = new QPushButton(Sql);
         select_val_bt->setObjectName("select_val_bt");
-        select_val_bt->setGeometry(QRect(540, 600, 91, 41));
-        QFont font5;
-        font5.setFamilies({QString::fromUtf8("AcadEref")});
-        font5.setBold(true);
-        select_val_bt->setFont(font5);
+        select_val_bt->setGeometry(QRect(540, 630, 91, 41));
+        QFont font6;
+        font6.setFamilies({QString::fromUtf8("AcadEref")});
+        font6.setBold(true);
+        select_val_bt->setFont(font6);
         select_val_bt->setStyleSheet(QString::fromUtf8("border:2px solid rgb(0, 133, 120);\n"
 "border-radius:10px;		 \n"
 "background-color: rgb(0, 170, 255);	\n"
@@ -410,8 +418,8 @@ public:
 ""));
         spinBox = new QSpinBox(Sql);
         spinBox->setObjectName("spinBox");
-        spinBox->setGeometry(QRect(500, 560, 81, 41));
-        spinBox->setFont(font4);
+        spinBox->setGeometry(QRect(500, 580, 81, 41));
+        spinBox->setFont(font5);
         spinBox->setStyleSheet(QString::fromUtf8("border:2px solid rgb(140, 66, 0);\n"
 "border-radius:10px;		 \n"
 "background-color: rgb(198, 66, 0);\n"
@@ -423,7 +431,7 @@ public:
         spinBox->setMaximum(100);
         groupBox_2 = new QGroupBox(Sql);
         groupBox_2->setObjectName("groupBox_2");
-        groupBox_2->setGeometry(QRect(0, 479, 341, 151));
+        groupBox_2->setGeometry(QRect(0, 479, 341, 191));
         groupBox_2->setFont(font1);
         groupBox_2->setStyleSheet(QString::fromUtf8("border:2px solid rgb(151, 151, 227);\n"
 "border-radius:10px;		 \n"
@@ -435,7 +443,7 @@ public:
         groupBox_2->setAlignment(Qt::AlignmentFlag::AlignCenter);
         currDay_bt = new QPushButton(groupBox_2);
         currDay_bt->setObjectName("currDay_bt");
-        currDay_bt->setGeometry(QRect(2, 110, 101, 41));
+        currDay_bt->setGeometry(QRect(2, 130, 101, 41));
         currDay_bt->setStyleSheet(QString::fromUtf8("border:2px solid rgb(0, 120, 180);\n"
 "border-radius:10px;		 \n"
 "background-color: rgb(0, 170, 127);\n"
@@ -446,7 +454,7 @@ public:
 ""));
         currThDay_bt = new QPushButton(groupBox_2);
         currThDay_bt->setObjectName("currThDay_bt");
-        currThDay_bt->setGeometry(QRect(110, 110, 101, 41));
+        currThDay_bt->setGeometry(QRect(110, 130, 101, 41));
         currThDay_bt->setStyleSheet(QString::fromUtf8("border:2px solid rgb(63, 63, 190);\n"
 "border-radius:10px;		 \n"
 "background-color: rgb(85, 85, 255);\n"
@@ -457,7 +465,7 @@ public:
 ""));
         currWeek_bt = new QPushButton(groupBox_2);
         currWeek_bt->setObjectName("currWeek_bt");
-        currWeek_bt->setGeometry(QRect(220, 110, 101, 41));
+        currWeek_bt->setGeometry(QRect(220, 130, 101, 41));
         currWeek_bt->setStyleSheet(QString::fromUtf8("border:2px solid rgb(180, 0, 180);\n"
 "border-radius:10px;		 \n"
 "background-color: rgb(255, 0, 255);\n"
@@ -498,7 +506,7 @@ public:
 ""));
         now_bt_2 = new QPushButton(groupBox_2);
         now_bt_2->setObjectName("now_bt_2");
-        now_bt_2->setGeometry(QRect(260, 64, 81, 41));
+        now_bt_2->setGeometry(QRect(260, 70, 81, 41));
         now_bt_2->setFont(font2);
         now_bt_2->setStyleSheet(QString::fromUtf8("border:2px solid rgb(132, 66, 198);\n"
 "border-radius:10px;		 \n"
@@ -536,6 +544,19 @@ public:
 "background-color: rgb(170, 170, 0);\n"
 "color: rgb(255, 255, 255);			\n"
 ""));
+        pushButtonExls = new QPushButton(Sql);
+        pushButtonExls->setObjectName("pushButtonExls");
+        pushButtonExls->setGeometry(QRect(360, 630, 111, 41));
+        pushButtonExls->setStyleSheet(QString::fromUtf8("border: 2px solid rgb(134, 134, 0);   \n"
+"background-color: rgb(255, 0, 127);\n"
+"border-radius:10px;		 \n"
+"color: rgb(255, 255, 255);\n"
+""));
+        pushButtonPicture = new QPushButton(Sql);
+        pushButtonPicture->setObjectName("pushButtonPicture");
+        pushButtonPicture->setGeometry(QRect(20, 10, 181, 41));
+        pushButtonPicture->setStyleSheet(QString::fromUtf8("background-color: rgb(170, 0, 127);\n"
+"font: 700 12pt \"\345\276\256\350\275\257\351\233\205\351\273\221\";"));
         tableView->raise();
         title->raise();
         start_l->raise();
@@ -553,6 +574,8 @@ public:
         line_2->raise();
         clear_bt->raise();
         comboBox->raise();
+        pushButtonExls->raise();
+        pushButtonPicture->raise();
 
         retranslateUi(Sql);
 
@@ -580,6 +603,8 @@ public:
         icon->setText(QString());
         displayAll_bt->setText(QCoreApplication::translate("Sql", "\346\230\276\347\244\272\346\211\200\346\234\211", nullptr));
         clear_bt->setText(QCoreApplication::translate("Sql", "\346\270\205\347\251\272\346\225\260\346\215\256", nullptr));
+        pushButtonExls->setText(QCoreApplication::translate("Sql", "\345\257\274\345\207\272", nullptr));
+        pushButtonPicture->setText(QCoreApplication::translate("Sql", "\346\230\276\347\244\272\345\216\206\345\217\262\346\233\262\347\272\277\345\233\276", nullptr));
     } // retranslateUi
 
 };
